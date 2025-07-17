@@ -1,0 +1,93 @@
+<!-- 页脚 -->
+<footer class="bg-gray-800 text-white mt-12"  data-diy="place" data-diy-id="/e193da98-10e6-4bf5-8294-e3f009a5c9bd.html">
+	<div class="container mx-auto px-4 py-8">
+		<div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+			<div>
+				<h3 class="text-lg font-bold mb-4">关于我们</h3>
+				<ul class="space-y-2">
+					<li><a href="#" class="text-gray-300 hover:text-white">市政府简介</a></li>
+					<li><a href="#" class="text-gray-300 hover:text-white">领导之窗</a></li>
+					<li><a href="#" class="text-gray-300 hover:text-white">组织机构</a></li>
+					<li><a href="#" class="text-gray-300 hover:text-white">政府工作报告</a></li>
+				</ul>
+			</div>
+			<div>
+				<h3 class="text-lg font-bold mb-4">政务服务</h3>
+				<ul class="space-y-2">
+					<li><a href="#" class="text-gray-300 hover:text-white">办事指南</a></li>
+					<li><a href="#" class="text-gray-300 hover:text-white">表格下载</a></li>
+					<li><a href="#" class="text-gray-300 hover:text-white">在线申报</a></li>
+					<li><a href="#" class="text-gray-300 hover:text-white">查询中心</a></li>
+				</ul>
+			</div>
+			<div>
+				<h3 class="text-lg font-bold mb-4">互动交流</h3>
+				<ul class="space-y-2">
+					<li><a href="#" class="text-gray-300 hover:text-white">市长信箱</a></li>
+					<li><a href="#" class="text-gray-300 hover:text-white">在线咨询</a></li>
+					<li><a href="#" class="text-gray-300 hover:text-white">意见征集</a></li>
+					<li><a href="#" class="text-gray-300 hover:text-white">网上调查</a></li>
+				</ul>
+			</div>
+			<div>
+				<h3 class="text-lg font-bold mb-4">联系方式</h3>
+				<ul class="space-y-2">
+					<li class="flex items-start">
+						<i class="fas fa-map-marker-alt mt-1 mr-2 text-blue-400"></i>
+						<span>新星市光明路1号市政府大楼</span>
+					</li>
+					<li class="flex items-start">
+						<i class="fas fa-phone-alt mt-1 mr-2 text-blue-400"></i>
+						<span>12345（政务服务热线）</span>
+					</li>
+					<li class="flex items-start">
+						<i class="fas fa-envelope mt-1 mr-2 text-blue-400"></i>
+						<span>info@xinxing.gov.cn</span>
+					</li>
+					<li class="flex items-start">
+						<i class="fas fa-clock mt-1 mr-2 text-blue-400"></i>
+						<span>周一至周五 8:30-17:30（节假日除外）</span>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="border-t border-gray-700 mt-8 pt-6 text-center text-gray-400">
+			<p>© 2023 新星市人民政府 版权所有</p>
+			<p class="mt-2">网站标识码：1234567890 备案号：京ICP备12345678号-1</p>
+		</div>
+	</div>
+</footer>
+
+
+<!-- 返回顶部按钮 -->
+<button id="back-to-top" class="fixed bottom-8 right-8 bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition-all duration-300 hidden">
+	<i class="fas fa-arrow-up"></i>
+</button>
+
+<script>
+	// 切换节日模式
+	document.addEventListener('DOMContentLoaded', function() {
+		// 移动端菜单切换
+		document.getElementById('mobile-menu-button')?.addEventListener('click', function() {
+			document.getElementById('mobile-menu').classList.toggle('hidden');
+		});
+
+		// 标签页切换
+		const tabLinks = document.querySelectorAll('.tab-link');
+		tabLinks.forEach(link => {
+			link.addEventListener('click', function(e) {
+				e.preventDefault();
+				const tabId = this.getAttribute('href');
+
+				// 移除所有active类
+				document.querySelectorAll('.tab-link').forEach(el => {
+					el.classList.remove('text-blue-600', 'border-blue-600');
+					el.classList.add('text-gray-600', 'hover:text-blue-600');
+				});
+
+				// 添加active类到当前点击的标签
+				this.classList.add('active');
+			});
+		});
+	});
+</script>

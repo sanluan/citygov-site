@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="UTF-8">
+    <title>法人办事 - 政府网站模板</title>
+	<meta name="keywords" content=""/>
+	<meta name="description" content=""/>
+    <!--#include virtual="/include/common/5263183d-e47a-43e8-b159-bde076425459.html"--> 
+</head>
+<body class="font-sans bg-gray-50">
+    <!--#include virtual="/include/common/e01f6695-8132-4bef-97b6-d6505e6f8785.html"--> 
+
+	<!-- 办事服务页内容 -->
+	<main class="container mx-auto px-4 py-4">
+<!-- 面包屑导航 -->
+<nav class="breadcrumb">
+	<ol class="flex items-center" data-diy="category">
+		<li class="breadcrumb-item"><a href="http://gov.demo.publiccms.com/">首页</a></li>
+			<li class="breadcrumb-item" data-diy-item="143"><a href="http://gov.demo.publiccms.com/services/">办事服务</a></li>
+			<li class="breadcrumb-item active" data-diy-item="150">法人办事</li>
+	</ol>
+</nav>
+
+		<div class="bg-white rounded-lg shadow-md overflow-hidden mb-8">
+			<div class="bg-blue-800 text-white px-6 py-4" data-diy="category">
+				<h1 class="text-2xl font-bold" data-diy-item="143">办事服务</h1>
+				<p class="mt-2 text-blue-200">Government Services</p>
+			</div>
+			
+			<!-- 标签导航 -->
+			<div class="border-b border-gray-200">
+				<div class="flex overflow-x-auto" data-diy="child-category">
+					<a href="http://gov.demo.publiccms.com/services/personal/" class="px-6 py-4 font-mediumtext-gray-600 hover:text-blue-600">个人办事</a>
+					<a href="http://gov.demo.publiccms.com/services/legal/" class="px-6 py-4 font-medium text-blue-600 border-b-2 border-blue-600">法人办事</a>
+					<a href="http://gov.demo.publiccms.com/services/department/" class="px-6 py-4 font-mediumtext-gray-600 hover:text-blue-600">部门服务</a>
+					<a href="http://gov.demo.publiccms.com/services/convenience/" class="px-6 py-4 font-mediumtext-gray-600 hover:text-blue-600">便民服务</a>
+				</div>
+			</div>
+
+			<div class="p-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6" data-diy="content">
+			</div>
+		</div>
+	</main>
+	
+	<script>
+		var templatePath='category/service.html';
+		var itemString="itemType=category&itemId=150";
+	</script>
+    <!--#include virtual="/include/common/e193da98-10e6-4bf5-8294-e3f009a5c9bd.html"--> 
+</body>
+</html>

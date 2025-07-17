@@ -1,0 +1,23 @@
+<div class="relative overflow-hidden" data-diy="place" data-diy-id="${path}">
+	<div class="hero-gradient py-16">
+		<div class="container mx-auto px-4">
+			<div class="flex flex-col md:flex-row items-center">
+				<div class="md:w-1/2 mb-8 md:mb-0">
+					<h2 class="text-3xl md:text-4xl font-bold text-white mb-4">${(metadata.extendData.title)!}</h2>
+					<p class="text-xl text-blue-100 mb-6">${(metadata.extendData.slogan)!}</p>
+					<div class="flex space-x-4">
+						<@cms.category id=metadata.extendData.button1;category>
+							<a class="bg-white text-blue-800 px-6 py-2 rounded-md font-medium hover:bg-blue-50" href="${category.url}">了解详情</a>
+						</@cms.category>
+						<@cms.category id=metadata.extendData.button2;category>
+							<a class="border border-white text-white px-6 py-2 rounded-md font-medium hover:bg-blue-600" href="${category.url}">${category.name}</a>
+						</@cms.category>
+					</div>
+				</div>
+				<div class="md:w-1/2">
+					<img src="${getUrl(metadata.extendData.banner)!}" width="600" height="400" alt="${(metadata.extendData.title)!}" class="rounded-lg shadow-xl">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="UTF-8">
+    <title>${(attribute.title)?has_content?then(attribute.title,category.name)} - ${site.name}</title>
+	<meta name="keywords" content="${(attribute.keywords)!}"/>
+	<meta name="description" content="${(attribute.description)!}"/>
+	<@tools.includePlace path="/common/5263183d-e47a-43e8-b159-bde076425459.html"/> <#-- head -->
+</head>
+<body class="font-sans bg-gray-50">
+    <@tools.includePlace path="/common/e01f6695-8132-4bef-97b6-d6505e6f8785.html"/> <#-- nav -->
+
+    <!-- 表格下载页面 -->
+    <main class="container mx-auto px-4 py-4">
+		<@include path="/fragment/bread.html"/><#-- 面包屑导航 -->
+		
+        <!-- 选项卡导航 -->
+        <div class="flex border-b border-gray-200 mb-8">
+            <a class="tab-button px-6 py-3 text-gray-600 hover:text-blue-600" href="guide.html">
+                <i class="fas fa-list-alt mr-2"></i>办事指南
+            </a>
+            <a class="tab-button px-6 py-3 text-gray-600 hover:text-blue-600 active"  href="form-download.html">
+                <i class="fas fa-file-download mr-2"></i>表格下载
+            </a>
+            <a class="tab-button px-6 py-3 text-gray-600 hover:text-blue-600" href="application.html">
+                <i class="fas fa-file-upload mr-2"></i>在线申报
+            </a>
+            <a class="tab-button px-6 py-3 text-gray-600 hover:text-blue-600 active" href="query-center.html">
+                <i class="fas fa-search mr-2"></i>查询中心
+            </a>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-sm p-6 mb-8">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">常用表格下载</h2>
+
+            <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+                <div class="border-b border-gray-200">
+                    <div class="p-4 bg-gray-50">
+                        <h3 class="font-bold text-gray-800 mb-3">个人事务表格</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                            <div class="form-card bg-white border border-gray-200 rounded-md p-4 hover:border-blue-300 transition-all">
+                                <div class="flex items-start">
+                                    <div class="bg-blue-100 p-2 rounded-md mr-3">
+                                        <i class="fas fa-file-word text-blue-600"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-gray-800">户籍申请表</h4>
+                                        <p class="text-sm text-gray-600 mt-1">适用于各类户籍业务办理</p>
+                                        <div class="mt-3 flex items-center text-sm">
+                                            <span class="text-gray-500 mr-3"><i class="fas fa-file-alt mr-1"></i>DOC</span>
+                                            <span class="text-gray-500 mr-3"><i class="fas fa-download mr-1"></i>256KB</span>
+                                            <a href="#" class="text-blue-600 hover:text-blue-800">下载</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-card bg-white border border-gray-200 rounded-md p-4 hover:border-blue-300 transition-all">
+                                <div class="flex items-start">
+                                    <div class="bg-green-100 p-2 rounded-md mr-3">
+                                        <i class="fas fa-file-pdf text-green-600"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-gray-800">身份证申请表</h4>
+                                        <p class="text-sm text-gray-600 mt-1">居民身份证办理专用表格</p>
+                                        <div class="mt-3 flex items-center text-sm">
+                                            <span class="text-gray-500 mr-3"><i class="fas fa-file-alt mr-1"></i>PDF</span>
+                                            <span class="text-gray-500 mr-3"><i class="fas fa-download mr-1"></i>189KB</span>
+                                            <a href="#" class="text-blue-600 hover:text-blue-800">下载</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-card bg-white border border-gray-200 rounded-md p-4 hover:border-blue-300 transition-all">
+                                <div class="flex items-start">
+                                    <div class="bg-yellow-100 p-2 rounded-md mr-3">
+                                        <i class="fas fa-file-excel text-yellow-600"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-gray-800">社保申请表</h4>
+                                        <p class="text-sm text-gray-600 mt-1">社会保险参保、变更等业务</p>
+                                        <div class="mt-3 flex items-center text-sm">
+                                            <span class="text-gray-500 mr-3"><i class="fas fa-file-alt mr-1"></i>XLS</span>
+                                            <span class="text-gray-500 mr-3"><i class="fas fa-download mr-1"></i>312KB</span>
+                                            <a href="#" class="text-blue-600 hover:text-blue-800">下载</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="border-b border-gray-200">
+                    <div class="p-4">
+                        <h3 class="font-bold text-gray-800 mb-3">企业事务表格</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                            <div class="form-card bg-white border border-gray-200 rounded-md p-4 hover:border-blue-300 transition-all">
+                                <div class="flex items-start">
+                                    <div class="bg-purple-100 p-2 rounded-md mr-3">
+                                        <i class="fas fa-file-word text-purple-600"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-gray-800">公司注册申请表</h4>
+                                        <p class="text-sm text-gray-600 mt-1">企业设立登记专用表格</p>
+                                        <div class="mt-3 flex items-center text-sm">
+                                            <span class="text-gray-500 mr-3"><i class="fas fa-file-alt mr-1"></i>DOC</span>
+                                            <span class="text-gray-500 mr-3"><i class="fas fa-download mr-1"></i>428KB</span>
+                                            <a href="#" class="text-blue-600 hover:text-blue-800">下载</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-card bg-white border border-gray-200 rounded-md p-4 hover:border-blue-300 transition-all">
+                                <div class="flex items-start">
+                                    <div class="bg-red-100 p-2 rounded-md mr-3">
+                                        <i class="fas fa-file-pdf text-red-600"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-gray-800">税务登记表</h4>
+                                        <p class="text-sm text-gray-600 mt-1">企业税务登记专用表格</p>
+                                        <div class="mt-3 flex items-center text-sm">
+                                            <span class="text-gray-500 mr-3"><i class="fas fa-file-alt mr-1"></i>PDF</span>
+                                            <span class="text-gray-500 mr-3"><i class="fas fa-download mr-1"></i>356KB</span>
+                                            <a href="#" class="text-blue-600 hover:text-blue-800">下载</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-card bg-white border border-gray-200 rounded-md p-4 hover:border-blue-300 transition-all">
+                                <div class="flex items-start">
+                                    <div class="bg-indigo-100 p-2 rounded-md mr-3">
+                                        <i class="fas fa-file-excel text-indigo-600"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-gray-800">社保参保表</h4>
+                                        <p class="text-sm text-gray-600 mt-1">企业员工社保参保登记表</p>
+                                        <div class="mt-3 flex items-center text-sm">
+                                            <span class="text-gray-500 mr-3"><i class="fas fa-file-alt mr-1"></i>XLS</span>
+                                            <span class="text-gray-500 mr-3"><i class="fas fa-download mr-1"></i>287KB</span>
+                                            <a href="#" class="text-blue-600 hover:text-blue-800">下载</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="">
+                    <div class="p-4 bg-gray-50">
+                        <h3 class="font-bold text-gray-800 mb-3">其他表格</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                            <div class="form-card bg-white border border-gray-200 rounded-md p-4 hover:border-blue-300 transition-all">
+                                <div class="flex items-start">
+                                    <div class="bg-pink-100 p-2 rounded-md mr-3">
+                                        <i class="fas fa-file-pdf text-pink-600"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-gray-800">不动产登记表</h4>
+                                        <p class="text-sm text-gray-600 mt-1">房产登记、过户等业务</p>
+                                        <div class="mt-3 flex items-center text-sm">
+                                            <span class="text-gray-500 mr-3"><i class="fas fa-file-alt mr-1"></i>PDF</span>
+                                            <span class="text-gray-500 mr-3"><i class="fas fa-download mr-1"></i>412KB</span>
+                                            <a href="#" class="text-blue-600 hover:text-blue-800">下载</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-card bg-white border border-gray-200 rounded-md p-4 hover:border-blue-300 transition-all">
+                                <div class="flex items-start">
+                                    <div class="bg-teal-100 p-2 rounded-md mr-3">
+                                        <i class="fas fa-file-word text-teal-600"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-gray-800">出入境申请表</h4>
+                                        <p class="text-sm text-gray-600 mt-1">护照、港澳通行证办理</p>
+                                        <div class="mt-3 flex items-center text-sm">
+                                            <span class="text-gray-500 mr-3"><i class="fas fa-file-alt mr-1"></i>DOC</span>
+                                            <span class="text-gray-500 mr-3"><i class="fas fa-download mr-1"></i>298KB</span>
+                                            <a href="#" class="text-blue-600 hover:text-blue-800">下载</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-card bg-white border border-gray-200 rounded-md p-4 hover:border-blue-300 transition-all">
+                                <div class="flex items-start">
+                                    <div class="bg-orange-100 p-2 rounded-md mr-3">
+                                        <i class="fas fa-file-excel text-orange-600"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-gray-800">公积金申请表</h4>
+                                        <p class="text-sm text-gray-600 mt-1">住房公积金缴存、提取</p>
+                                        <div class="mt-3 flex items-center text-sm">
+                                            <span class="text-gray-500 mr-3"><i class="fas fa-file-alt mr-1"></i>XLS</span>
+                                            <span class="text-gray-500 mr-3"><i class="fas fa-download mr-1"></i>324KB</span>
+                                            <a href="#" class="text-blue-600 hover:text-blue-800">下载</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-sm p-6">
+            <h2 class="text-xl font-bold text-gray-800 mb-4">表格下载说明</h2>
+            <div class="prose max-w-none">
+                <ol class="list-decimal pl-5 space-y-2">
+                    <li>请根据业务需求选择相应的表格下载</li>
+                    <li>下载后请使用相应软件打开填写（Word、Excel、PDF阅读器等）</li>
+                    <li>填写时请仔细阅读表格中的填写说明</li>
+                    <li>填写完毕后请打印并签字，按要求提交至相关部门</li>
+                    <li>部分表格支持在线填写，可在"在线申报"栏目中操作</li>
+                    <li>如有疑问，可拨打12345政务服务热线咨询</li>
+                </ol>
+
+                <div class="mt-6 bg-blue-50 p-4 rounded-md">
+                    <h3 class="font-bold text-blue-800 mb-2">注意事项</h3>
+                    <ul class="list-disc pl-5 space-y-1">
+                        <li>请使用最新版本的表格，旧版表格可能无法受理</li>
+                        <li>填写内容必须真实、准确、完整</li>
+                        <li>部分表格需要加盖公章或提供相关证明材料</li>
+                        <li>建议使用电脑下载，手机下载可能出现格式问题</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+	<script>
+		var templatePath='${.current_template_name?keep_after('/')}';
+		var itemString="itemType=category&itemId=${category.id}";
+	</script>
+    <@tools.includePlace path="/common/e193da98-10e6-4bf5-8294-e3f009a5c9bd.html"/> <#-- footer -->
+
+    <script>
+        // 模拟表格下载功能
+        document.querySelectorAll('.form-card a[href="#"]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const formName = this.closest('.form-card').querySelector('h4').textContent;
+                alert(`即将下载: ${formName}\n在实际应用中，这里会触发文件下载`);
+            });
+        });
+    </script>
+</body>
+</html>

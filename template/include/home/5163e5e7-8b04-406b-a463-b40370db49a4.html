@@ -1,0 +1,21 @@
+<div class="bg-white rounded-lg shadow-md overflow-hidden" data-diy="place" data-diy-id="${path}">
+	<@cms.category code="policy";category>
+	<div class="bg-blue-800 text-white px-4 py-3 flex justify-between items-center">
+		<h3 class="font-bold">${category.name}</h3>
+		<a href="${category.url}" class="text-blue-200 hover:text-white text-sm">更多 ></a>
+	</div>
+	<@cms.contentList categoryId=category.id pageSize=3>
+	<div class="p-4" data-diy="content">
+		<#list page.list as content>
+		<div class="flex items-start<#if !content?is_last> mb-4</#if>" data-diy-item="${content.id}">
+			<#if content.cover?has_content> <img src="<@tools.thumb path=content.cover width=80 height=60/>" alt="${content.title}" class="w-20 h-15 object-cover rounded mr-3"></#if>
+			<div>
+				<a href="${content.url}" class="text-sm font-medium text-gray-800 hover:text-blue-600 line-clamp-2">${content.title}</a>
+				<p class="text-gray-500 text-xs mt-1">${content.publishDate?date}</p>
+			</div>
+		</div>
+		</#list>
+	</div>
+	</@cms.contentList>
+	</@cms.category>
+</div>

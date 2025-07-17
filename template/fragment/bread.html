@@ -1,0 +1,25 @@
+<#macro echoBread parentId="">
+	<#if parentId?has_content>
+		<@cms.category id=parentId;parent>
+			<#if parent.parentId?has_content>
+				<@echoBread parent.parentId!/>
+			</#if>
+			<li class="breadcrumb-item" data-diy-item="${parent.id}"><a href="${parent.url!}">${parent.name!}</a></li>
+		</@cms.category>
+	</#if>
+</#macro>
+<#if category?has_content>
+<!-- 面包屑导航 -->
+<nav class="breadcrumb">
+	<ol class="flex items-center" data-diy="category">
+		<li class="breadcrumb-item"><a href="${site.sitePath}">首页</a></li>
+		<@echoBread category.parentId/>
+		<#if content?has_content>
+			<li class="breadcrumb-item" data-diy-item="${category.id}"><a href="${category.url!}">${category.name!}</a></li>
+			<li class="breadcrumb-item active">${content.title}</li>
+		<#else>
+			<li class="breadcrumb-item active" data-diy-item="${category.id}">${category.name}</li>
+		</#if>
+	</ol>
+</nav>
+</#if>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="UTF-8">
+    <title>便民服务 - 政府网站模板</title>
+	<meta name="keywords" content=""/>
+	<meta name="description" content=""/>
+    <!--#include virtual="/include/common/5263183d-e47a-43e8-b159-bde076425459.html"--> 
+</head>
+<body class="font-sans bg-gray-50">
+    <!--#include virtual="/include/common/e01f6695-8132-4bef-97b6-d6505e6f8785.html"--> 
+
+	<!-- 办事服务页内容 -->
+	<main class="container mx-auto px-4 py-4">
+<!-- 面包屑导航 -->
+<nav class="breadcrumb">
+	<ol class="flex items-center" data-diy="category">
+		<li class="breadcrumb-item"><a href="http://gov.demo.publiccms.com/">首页</a></li>
+			<li class="breadcrumb-item" data-diy-item="143"><a href="http://gov.demo.publiccms.com/services/">办事服务</a></li>
+			<li class="breadcrumb-item active" data-diy-item="152">便民服务</li>
+	</ol>
+</nav>
+
+		<div class="bg-white rounded-lg shadow-md overflow-hidden mb-8">
+			<div class="bg-blue-800 text-white px-6 py-4" data-diy="category">
+				<h1 class="text-2xl font-bold" data-diy-item="143">办事服务</h1>
+				<p class="mt-2 text-blue-200">Government Services</p>
+			</div>
+			
+			<!-- 标签导航 -->
+			<div class="border-b border-gray-200">
+				<div class="flex overflow-x-auto" data-diy="child-category">
+					<a href="http://gov.demo.publiccms.com/services/personal/" class="px-6 py-4 font-mediumtext-gray-600 hover:text-blue-600">个人办事</a>
+					<a href="http://gov.demo.publiccms.com/services/legal/" class="px-6 py-4 font-mediumtext-gray-600 hover:text-blue-600">法人办事</a>
+					<a href="http://gov.demo.publiccms.com/services/department/" class="px-6 py-4 font-mediumtext-gray-600 hover:text-blue-600">部门服务</a>
+					<a href="http://gov.demo.publiccms.com/services/convenience/" class="px-6 py-4 font-medium text-blue-600 border-b-2 border-blue-600">便民服务</a>
+				</div>
+			</div>
+
+			<div class="p-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6" data-diy="content">
+					<a href="#" class="bg-gray-50 rounded-lg p-4 hover:bg-white hover:shadow-md transition-all duration-200" data-diy-item="7350778751006806016">
+						<div class="flex items-center mb-3">
+							<div class="bg-blue-100 p-2 rounded-full mr-3">
+								<i class="fas fa-bus text-blue-600"></i>
+							</div>
+							<h3 class="font-medium text-gray-800">公交查询</h3>
+						</div>
+						<p class="text-sm text-gray-600">公交查询</p>
+					</a>
+					<a href="#" class="bg-gray-50 rounded-lg p-4 hover:bg-white hover:shadow-md transition-all duration-200" data-diy-item="7350778673093414912">
+						<div class="flex items-center mb-3">
+							<div class="bg-green-100 p-2 rounded-full mr-3">
+								<i class="fas fa-hospital text-green-600"></i>
+							</div>
+							<h3 class="font-medium text-gray-800">医疗挂号</h3>
+						</div>
+						<p class="text-sm text-gray-600">医疗挂号</p>
+					</a>
+					<a href="#" class="bg-gray-50 rounded-lg p-4 hover:bg-white hover:shadow-md transition-all duration-200" data-diy-item="7350778573772296192">
+						<div class="flex items-center mb-3">
+							<div class="bg-purple-100 p-2 rounded-full mr-3">
+								<i class="fas fa-graduation-cap text-purple-600"></i>
+							</div>
+							<h3 class="font-medium text-gray-800">学区查询</h3>
+						</div>
+						<p class="text-sm text-gray-600">学区查询</p>
+					</a>
+					<a href="#" class="bg-gray-50 rounded-lg p-4 hover:bg-white hover:shadow-md transition-all duration-200" data-diy-item="7350778490490195968">
+						<div class="flex items-center mb-3">
+							<div class="bg-yellow-100 p-2 rounded-full mr-3">
+								<i class="fas fa-utensils text-yellow-600"></i>
+							</div>
+							<h3 class="font-medium text-gray-800">餐饮评级</h3>
+						</div>
+						<p class="text-sm text-gray-600">餐饮评级</p>
+					</a>
+					<a href="#" class="bg-gray-50 rounded-lg p-4 hover:bg-white hover:shadow-md transition-all duration-200" data-diy-item="7350778283752951808">
+						<div class="flex items-center mb-3">
+							<div class="bg-blue-100 p-2 rounded-full mr-3">
+								<i class="fas fa-water text-blue-600"></i>
+							</div>
+							<h3 class="font-medium text-gray-800">停水公告</h3>
+						</div>
+						<p class="text-sm text-gray-600">停水公告</p>
+					</a>
+					<a href="#" class="bg-gray-50 rounded-lg p-4 hover:bg-white hover:shadow-md transition-all duration-200" data-diy-item="7350778057734492160">
+						<div class="flex items-center mb-3">
+							<div class="bg-yellow-100 p-2 rounded-full mr-3">
+								<i class="fas fa-bolt text-yellow-600"></i>
+							</div>
+							<h3 class="font-medium text-gray-800"> 停电公告</h3>
+						</div>
+						<p class="text-sm text-gray-600">供电局停电公告</p>
+					</a>
+			</div>
+		</div>
+	</main>
+	
+	<script>
+		var templatePath='category/service.html';
+		var itemString="itemType=category&itemId=152";
+	</script>
+    <!--#include virtual="/include/common/e193da98-10e6-4bf5-8294-e3f009a5c9bd.html"--> 
+</body>
+</html>

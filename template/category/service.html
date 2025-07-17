@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="UTF-8">
+    <title>${(attribute.title)?has_content?then(attribute.title,category.name)} - ${site.name}</title>
+	<meta name="keywords" content="${(attribute.keywords)!}"/>
+	<meta name="description" content="${(attribute.description)!}"/>
+    <@tools.includePlace path="/common/5263183d-e47a-43e8-b159-bde076425459.html"/> <#-- head -->
+</head>
+<body class="font-sans bg-gray-50">
+    <@tools.includePlace path="/common/e01f6695-8132-4bef-97b6-d6505e6f8785.html"/> <#-- nav -->
+
+	<!-- 办事服务页内容 -->
+	<main class="container mx-auto px-4 py-4">
+		<@include path="/fragment/bread.html"/><#-- 面包屑导航 -->
+
+		<div class="bg-white rounded-lg shadow-md overflow-hidden mb-8">
+			<@cms.category id=category.parentId containsAttribute=true;parent>
+			<div class="bg-blue-800 text-white px-6 py-4" data-diy="category">
+				<h1 class="text-2xl font-bold" data-diy-item="${parent.id}">${parent.name}</h1>
+				<p class="mt-2 text-blue-200">${parent.attribute.enName}</p>
+			</div>
+			</@cms.category>
+			
+			<#if category.parentId?has_content>
+			<!-- 标签导航 -->
+			<div class="border-b border-gray-200">
+				<@cms.categoryList parentId=category.parentId>
+				<div class="flex overflow-x-auto" data-diy="child-category">
+					<#list page.list as a>
+					<a href="${a.url}" class="px-6 py-4 font-medium<#if category.id=a.id> text-blue-600 border-b-2 border-blue-600<#else>text-gray-600 hover:text-blue-600</#if>">${a.name}</a>
+					</#list>
+				</div>
+				</@cms.categoryList>
+			</div>
+			</#if>
+
+			<@cms.contentList categoryId=category.id pageSize=category.pageSize containsAttribute=true>
+			<div class="p-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6" data-diy="content">
+				<#list page.list as content>
+					<a href="${content.url}" class="bg-gray-50 rounded-lg p-4 hover:bg-white hover:shadow-md transition-all duration-200" data-diy-item="${content.id}">
+						<div class="flex items-center mb-3">
+							<div class="bg-${content.attribute.color}-100 p-2 rounded-full mr-3">
+								<i class="fas fa-${content.attribute.icon} text-${content.attribute.color}-600"></i>
+							</div>
+							<h3 class="font-medium text-gray-800">${content.title}</h3>
+						</div>
+						<p class="text-sm text-gray-600">${content.description!}</p>
+					</a>
+				</#list>
+			</div>
+			</@cms.contentList>
+		</div>
+	</main>
+	
+	<script>
+		var templatePath='${.current_template_name?keep_after('/')}';
+		var itemString="itemType=category&itemId=${category.id}";
+	</script>
+    <@tools.includePlace path="/common/e193da98-10e6-4bf5-8294-e3f009a5c9bd.html"/> <#-- footer -->
+</body>
+</html>

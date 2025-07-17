@@ -1,0 +1,30 @@
+<div class="news-slider relative h-80 mb-6 rounded-lg overflow-hidden shadow-md">
+	<div class="news-slides flex h-full transition-transform duration-500 ease-in-out" data-diy="place" data-diy-id="${path}">
+		<#list page.list as place>
+		<div class="news-slide min-w-full h-full relative" data-diy-item="${place.id}">
+			<@cms.content id=place.itemId;content>
+			<img src="${place.cover}" alt="${place.title}" class="w-full h-full object-cover">
+			<div class="absolute inset-0 bg-gradient-to-t from-black to-transparent"></div>
+			<div class="absolute bottom-0 left-0 right-0 p-6">
+				<span class="bg-blue-600 text-white text-xs px-2 py-1 rounded"><@cms.category id=content.categoryId;category>${category.name}</@cms.category></span>
+				<h3 class="text-xl font-bold text-white mt-2"><a href="${content.url}" class="hover:underline">${place.title}</a></h3>
+				<p class="text-blue-100 text-sm mt-1">${place.publishDate?date}</p>
+			</div>
+			</@cms.content>
+		</div>
+		</#list>
+	</div>
+	<#-- 轮播指示器 -->
+	<div class="slider-dots absolute flex justify-center space-x-2">
+		<#list page.list as place>
+		<button class="slider-dot<#if place?is_first> active</#if>" data-slide="${place?index}"></button>
+		</#list>
+	</div>
+	<#-- 轮播控制按钮 -->
+	<button class="slider-prev absolute left-4 top-1/2 -translate-y-1/2 bg-white bg-opacity-30 text-white p-2 rounded-full hover:bg-opacity-50">
+		<i class="fas fa-chevron-left"></i>
+	</button>
+	<button class="slider-next absolute right-4 top-1/2 -translate-y-1/2 bg-white bg-opacity-30 text-white p-2 rounded-full hover:bg-opacity-50">
+		<i class="fas fa-chevron-right"></i>
+	</button>
+</div>

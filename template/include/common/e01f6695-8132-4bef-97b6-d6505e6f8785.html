@@ -1,0 +1,105 @@
+<!-- 顶部通知栏 -->
+<div class="bg-blue-800 text-white text-sm py-1 px-4 flex items-center justify-between"  data-diy="place" data-diy-id="${path}">
+	<div class="flex items-center space-x-4">
+		<span><i class="fas fa-calendar-alt mr-1"></i> 今天是${.now?string("yyyy年MM月dd日")} ${.now?string("EEE")}</span>
+	</div>
+	<div class="hidden md:flex items-center space-x-4">
+		<a href="${site.sitePath}sitemap.html" class="hover:text-blue-200"><i class="fas fa-sitemap mr-1"></i> 网站地图</a>
+	</div>
+</div>
+
+<!-- 导航栏 -->
+<header class="bg-white shadow-sm sticky top-0 z-50">
+	<div class="container mx-auto px-4">
+		<div class="flex justify-between items-center py-4">
+			<a href="${site.sitePath}">
+				<div class="flex items-center">
+					<img src="${getUrl(metadata.extendData.logo)!}" alt="${site.name!}" class="h-12 w-20 mr-3">
+					<div>
+						<h1 class="text-2xl font-bold text-blue-900">${site.name!}</h1>
+						<p class="text-xs text-gray-500">${(siteAttribute.en_name)!}</p>
+					</div>
+				</div>
+			</a>
+
+			<@cms.categoryList>
+			<div class="hidden lg:flex items-center space-x-1" data-diy="category">
+				<a href="${site.sitePath}" class="px-4 py-2 text-blue-900 font-medium hover:text-blue-600">首页</a>
+				<#list page.list as category>
+					<#if category.childIds?has_content>
+				<div class="dropdown relative">
+					<a class="px-4 py-2 text-blue-900 font-medium hover:text-blue-600 flex items-center" href="${category.url!}" data-diy-item="${category.id}">
+						${category.name} <i class="fas fa-chevron-down ml-1 text-xs"></i>
+					</a>
+					<@cms.categoryList parentId=category.id>
+					<div class="dropdown-menu absolute hidden bg-white shadow-lg rounded-md w-36 py-1 z-50">
+						<#list page.list as category>
+						<a href="${category.url}" class="block px-4 py-2 text-gray-800 hover:bg-blue-50" data-diy-item="${category.id}">${category.name}</a>
+						</#list>
+					</div>
+					</@cms.categoryList>
+				</div>
+					<#else>
+				<a href="${category.url}" class="px-4 py-2 text-blue-900 font-medium hover:text-blue-600" data-diy-item="${category.id}">${category.name}</a>
+					</#if>
+				</#list>
+			</div>
+			<div class="flex items-center lg:hidden">
+				<button id="mobile-menu-button" class="text-blue-900">
+					<i class="fas fa-bars text-2xl"></i>
+				</button>
+			</div>
+		</div>
+
+		<!-- 移动端菜单 -->
+		<div id="mobile-menu" class="hidden lg:hidden bg-white py-2 border-t" data-diy="category">
+			<a href="${site.sitePath}" class="block px-4 py-2 text-blue-900 hover:bg-blue-50">首页</a>
+			<#list page.list as category>
+					<#if category.childIds?has_content>
+			<div class="px-4 py-2">
+				<a  href="${category.url}" class="flex items-center justify-between w-full text-blue-900" data-diy-item="${category.id}">
+					${category.name} <i class="fas fa-chevron-down"></i>
+				</a>
+				<@cms.categoryList parentId=category.id>
+				<div class="hidden mt-2 pl-4">
+					<#list page.list as category>
+					<a  href="${category.url}"  class="block py-2 text-gray-800 hover:bg-blue-50" data-diy-item="${category.id}">${category.name}</a>
+					</#list>
+				</div>
+				</@cms.categoryList>
+			</div>
+				<#else>
+			<a href="${category.url}" class="block px-4 py-2 text-blue-900 hover:bg-blue-50">${category.name}</a>
+				</#if>
+			</#list>
+		</div>
+		</@cms.categoryList>
+	</div>
+</header>
+
+<!-- 搜索栏 -->
+<div class="bg-blue-700 py-4">
+	<div class="container mx-auto px-4">
+		<form action="${site.dynamicPath}search/">
+			<div class="max-w-3xl mx-auto flex relative">
+					<input type="text" name="wd" placeholder="搜索政务信息、办事指南..." class="flex-grow px-4 py-3 rounded-l-md focus:outline-none" id="search-input">
+					<button type="submit" class="bg-blue-900 text-white px-6 py-3 rounded-r-md hover:bg-blue-800">
+						<i class="fas fa-search"></i> 搜索
+					</button>			
+			</div>
+		</form>
+		<!-- 搜索建议 -->
+		<div class="bg-white rounded-b-lg shadow-lg mt-1 hidden" id="search-suggestions">
+			<div class="p-4 border-b">
+				<h3 class="text-sm font-medium text-gray-500 mb-2">热门搜索</h3>
+				<@cms.wordList pageSize=10>
+				<div class="flex flex-wrap gap-2">
+					<#list page.list as word>
+					<a href="${site.dynamicPath}search/?wd=${word.name?url}" class="text-sm px-3 py-1 bg-gray-100 rounded-full hover:bg-gray-200">${word.name}</a>
+					</#list>
+				</div>
+				</@cms.wordList>
+			</div>
+		</div>
+	</div>
+</div>

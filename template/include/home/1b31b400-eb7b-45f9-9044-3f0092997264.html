@@ -1,0 +1,18 @@
+<div class="bg-white rounded-lg shadow-md overflow-hidden" data-diy="place" data-diy-id="${path}">
+	<@cms.category id=metadata.extendData.service;category>
+	<div class="bg-blue-800 text-white px-4 py-3 flex justify-between items-center" data-diy="category">
+		<h3 class="font-bold" data-diy-item="${(metadata.extendData.service)!}">${category.name}</h3>
+		<a href="${category.url}" class="text-blue-200 hover:text-white text-sm">更多 ></a>
+	</div>
+	<@cms.contentList categoryId=category.id>
+	<div class="p-4 grid grid-cols-2 gap-3" data-diy="content">
+		<#list page.list as content>
+		<a href="${content.url}" class="flex items-center p-2 bg-gray-50 rounded hover:bg-blue-50" data-diy-item="${content.id}">
+			<i class="fas fa-bus text-blue-600 mr-2"></i>
+			<span class="text-sm">${content.title}</span>
+		</a>
+		</#list>
+	</div>
+	</@cms.contentList>
+	</@cms.category>
+</div>

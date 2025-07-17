@@ -1,0 +1,28 @@
+<!-- 通知公告 -->
+<div class="bg-white rounded-lg shadow-md overflow-hidden" data-diy="place" data-diy-id="${path}">
+	<@import path="/fragment/tools.ftl" namespace="t"/><#-- 工具 -->
+	<@cms.category code="notice";category>
+	<div class="bg-blue-800 text-white px-4 py-3 flex justify-between items-center">
+		<h3 class="font-bold">通知公告</h3>
+		<a href="${category.url}" class="text-blue-200 hover:text-white text-sm">更多 &gt;</a>
+	</div>
+		<@cms.contentList categoryId=category.id containsAttribute=true pageSize=5>
+	<div class="p-4" data-diy="content">
+			<#list page.list as content>
+				<@t.merge 'values' content.attribute.type/>
+			</#list>
+			<@cms.dictionaryData dictionaryId='type' values=t.values><#assign dictionaryDataMap=map/></@cms.dictionaryData>
+			<#list page.list as content>
+		<div class="<#if content?is_last>pb-1<#else>border-b border-gray-100 pb-3 mb-3</#if>">
+			<a href="${content.url!}" class="flex items-start hover:text-blue-600" data-diy-item="${content.id}">
+				<#assign color=content.attribute.type?switch('notice','yellow','emergency','red','publicity','green','blue')/>
+				<span class="bg-${color}-100 text-${color}-800 text-xs px-2 py-1 rounded mr-3">${(dictionaryDataMap[content.attribute.type].text)!}</span>
+				<span class="flex-1">${content.title}</span>
+			</a>
+			<p class="text-gray-500 text-sm mt-1 pl-11">${content.publishDate?date}</p>
+		</div>
+			</#list>
+	</div>
+		</@cms.contentList>
+	</@cms.category>
+</div>

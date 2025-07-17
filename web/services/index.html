@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>政府网站演示某某市人民政府 - 为人民服务</title>
+    <!--#include virtual="/include/common/5263183d-e47a-43e8-b159-bde076425459.html"--> 
+</head>
+<body class="font-sans bg-gray-50">
+    <!--#include virtual="/include/common/e01f6695-8132-4bef-97b6-d6505e6f8785.html"--> 
+
+	<!-- 办事服务页面 -->
+	<main class="container mx-auto px-4 py-4">
+<!-- 面包屑导航 -->
+<nav class="breadcrumb">
+	<ol class="flex items-center" data-diy="category">
+		<li class="breadcrumb-item"><a href="http://gov.demo.publiccms.com/">首页</a></li>
+			<li class="breadcrumb-item active" data-diy-item="143">办事服务</li>
+	</ol>
+</nav>
+
+		<!-- 服务分类导航 -->
+		<div class="bg-white rounded-lg shadow-md overflow-hidden mb-8">
+			<div class="bg-blue-800 text-white px-6 py-4">
+				<h2 class="text-2xl font-bold">办事服务分类</h2>
+			</div>
+			<div class="p-6">
+				<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+					<a href="#personal" class="service-category bg-white rounded-lg shadow-sm border border-gray-200 p-6 text-center hover:border-blue-500">
+						<div class="bg-blue-100 w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4">
+							<i class="fas fa-user text-blue-600 text-2xl"></i>
+						</div>
+						<h3 class="text-lg font-bold text-gray-800 mb-2">个人办事</h3>
+						<p class="text-gray-600 text-sm">户籍、证件、社保、公积金等</p>
+					</a>
+
+					<a href="#business" class="service-category bg-white rounded-lg shadow-sm border border-gray-200 p-6 text-center hover:border-green-500">
+						<div class="bg-green-100 w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4">
+							<i class="fas fa-building text-green-600 text-2xl"></i>
+						</div>
+						<h3 class="text-lg font-bold text-gray-800 mb-2">企业办事</h3>
+						<p class="text-gray-600 text-sm">注册、变更、税务、资质等</p>
+					</a>
+
+					<a href="#department" class="service-category bg-white rounded-lg shadow-sm border border-gray-200 p-6 text-center hover:border-purple-500">
+						<div class="bg-purple-100 w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4">
+							<i class="fas fa-landmark text-purple-600 text-2xl"></i>
+						</div>
+						<h3 class="text-lg font-bold text-gray-800 mb-2">部门服务</h3>
+						<p class="text-gray-600 text-sm">各政府部门专项服务</p>
+					</a>
+
+					<a href="#convenience" class="service-category bg-white rounded-lg shadow-sm border border-gray-200 p-6 text-center hover:border-yellow-500">
+						<div class="bg-yellow-100 w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4">
+							<i class="fas fa-umbrella-beach text-yellow-600 text-2xl"></i>
+						</div>
+						<h3 class="text-lg font-bold text-gray-800 mb-2">便民服务</h3>
+						<p class="text-gray-600 text-sm">生活缴费、交通出行等</p>
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<!-- 个人办事 -->
+		<div id="personal" class="bg-white rounded-lg shadow-md overflow-hidden mb-8">
+			<div class="bg-blue-800 text-white px-6 py-4">
+				<h2 class="text-2xl font-bold">个人办事</h2>
+			</div>
+			<div class="p-6">
+				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+					<!-- 服务项目 -->
+					<div class="bg-gray-50 rounded-lg p-4 border border-gray-200 hover:border-blue-500 transition-colors duration-300">
+						<div class="flex items-start">
+							<div class="bg-blue-100 p-2 rounded-lg mr-4">
+								<i class="fas fa-id-card text-blue-600 text-xl"></i>
+							</div>
+							<div>
+								<h3 class="font-bold text-gray-800 mb-1">身份证办理</h3>
+								<p class="text-gray-600 text-sm mb-2">首次申领、换领、补领居民身份证</p>
+								<a href="#" class="text-blue-600 text-sm hover:underline">在线办理 <i class="fas fa-arrow-right ml-1"></i></a>
+							</div>
+						</div>
+					</div>
+
+					<div class="bg-gray-50 rounded-lg p-4 border border-gray-200 hover:border-blue-500 transition-colors duration-300">
+						<div class="flex items-start">
+							<div class="bg-green-100 p-2 rounded-lg mr-4">
+								<i class="fas fa-home text-green-600 text-xl"></i>
+							</div>
+							<div>
+								<h3 class="font-bold text-gray-800 mb-1">不动产登记</h3>
+								<p class="text-gray-600 text-sm mb-2">房产证办理、过户、抵押登记等</p>
+								<a href="#" class="text-blue-600 text-sm hover:underline">在线办理 <i class="fas fa-arrow-right ml-1"></i></a>
+							</div>
+						</div>
+					</div>
+
+					<div class="bg-gray-50 rounded-lg p-4 border border-gray-200 hover:border-blue-500 transition-colors duration-300">
+						<div class="flex items-start">
+							<div class="bg-purple-100 p-2 rounded-lg mr-4">
+								<i class="fas fa-passport text-purple-600 text-xl"></i>
+							</div>
+							<div>
+								<h3 class="font-bold text-gray-800 mb-1">出入境证件</h3>
+								<p class="text-gray-600 text-sm mb-2">护照、港澳通行证等办理</p>
+								<a href="#" class="text-blue-600 text-sm hover:underline">在线办理 <i class="fas fa-arrow-right ml-1"></i></a>
+							</div>
+						</div>
+					</div>
+
+					<div class="bg-gray-50 rounded-lg p-4 border border-gray-200 hover:border-blue-500 transition-colors duration-300">
+						<div class="flex items-start">
+							<div class="bg-yellow-100 p-2 rounded-lg mr-4">
+								<i class="fas fa-car text-yellow-600 text-xl"></i>
+							</div>
+							<div>
+								<h3 class="font-bold text-gray-800 mb-1">机动车业务</h3>
+								<p class="text-gray-600 text-sm mb-2">驾驶证、行驶证、车辆登记等</p>
+								<a href="#" class="text-blue-600 text-sm hover:underline">在线办理 <i class="fas fa-arrow-right ml-1"></i></a>
+							</div>
+						</div>
+					</div>
+
+					<div class="bg-gray-50 rounded-lg p-4 border border-gray-200 hover:border-blue-500 transition-colors duration-300">
+						<div class="flex items-start">
+							<div class="bg-red-100 p-2 rounded-lg mr-4">
+								<i class="fas fa-heartbeat text-red-600 text-xl"></i>
+							</div>
+							<div>
+								<h3 class="font-bold text-gray-800 mb-1">社保医保</h3>
+								<p class="text-gray-600 text-sm mb-2">社保卡、医保报销、缴费查询等</p>
+								<a href="#" class="text-blue-600 text-sm hover:underline">在线办理 <i class="fas fa-arrow-right ml-1"></i></a>
+							</div>
+						</div>
+					</div>
+
+					<div class="bg-gray-50 rounded-lg p-4 border border-gray-200 hover:border-blue-500 transition-colors duration-300">
+						<div class="flex items-start">
+							<div class="bg-indigo-100 p-2 rounded-lg mr-4">
+								<i class="fas fa-graduation-cap text-indigo-600 text-xl"></i>
+							</div>
+							<div>
+								<h3 class="font-bold text-gray-800 mb-1">教育服务</h3>
+								<p class="text-gray-600 text-sm mb-2">入学报名、学历认证、助学贷款等</p>
+								<a href="#" class="text-blue-600 text-sm hover:underline">在线办理 <i class="fas fa-arrow-right ml-1"></i></a>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="mt-6 text-center">
+					<a href="#" class="inline-block bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition-colors duration-300">
+						查看更多个人服务 <i class="fas fa-chevron-down ml-1"></i>
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<!-- 企业办事 -->
+		<div id="business" class="bg-white rounded-lg shadow-md overflow-hidden mb-8">
+			<div class="bg-green-700 text-white px-6 py-4">
+				<h2 class="text-2xl font-bold">企业办事</h2>
+			</div>
+			<div class="p-6">
+				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+					<!-- 服务项目 -->
+					<div class="bg-gray-50 rounded-lg p-4 border border-gray-200 hover:border-green-500 transition-colors duration-300">
+						<div class="flex items-start">
+							<div class="bg-green-100 p-2 rounded-lg mr-4">
+								<i class="fas fa-file-signature text-green-600 text-xl"></i>
+							</div>
+							<div>
+								<h3 class="font-bold text-gray-800 mb-1">企业注册</h3>
+								<p class="text-gray-600 text-sm mb-2">公司设立登记、变更、注销等</p>
+								<a href="#" class="text-green-600 text-sm hover:underline">在线办理 <i class="fas fa-arrow-right ml-1"></i></a>
+							</div>
+						</div>
+					</div>
+
+					<div class="bg-gray-50 rounded-lg p-4 border border-gray-200 hover:border-green-500 transition-colors duration-300">
+						<div class="flex items-start">
+							<div class="bg-blue-100 p-2 rounded-lg mr-4">
+								<i class="fas fa-receipt text-blue-600 text-xl"></i>
+							</div>
+							<div>
+								<h3 class="font-bold text-gray-800 mb-1">税务登记</h3>
+								<p class="text-gray-600 text-sm mb-2">税务登记、发票申领、纳税申报等</p>
+								<a href="#" class="text-green-600 text-sm hover:underline">在线办理 <i class="fas fa-arrow-right ml-1"></i></a>
+							</div>
+						</div>
+					</div>
+
+					<div class="bg-gray-50 rounded-lg p-4 border border-gray-200 hover:border-green-500 transition-colors duration-300">
+						<div class="flex items-start">
+							<div class="bg-purple-100 p-2 rounded-lg mr-4">
+								<i class="fas fa-certificate text-purple-600 text-xl"></i>
+							</div>
+							<div>
+								<h3 class="font-bold text-gray-800 mb-1">资质许可</h3>
+								<p class="text-gray-600 text-sm mb-2">各类经营许可证、资质证书办理</p>
+								<a href="#" class="text-green-600 text-sm hover:underline">在线办理 <i class="fas fa-arrow-right ml-1"></i></a>
+							</div>
+						</div>
+					</div>
+
+					<div class="bg-gray-50 rounded-lg p-4 border border-gray-200 hover:border-green-500 transition-colors duration-300">
+						<div class="flex items-start">
+							<div class="bg-yellow-100 p-2 rounded-lg mr-4">
+								<i class="fas fa-hard-hat text-yellow-600 text-xl"></i>
+							</div>
+							<div>
+								<h3 class="font-bold text-gray-800 mb-1">工程建设</h3>
+								<p class="text-gray-600 text-sm mb-2">施工许可、规划审批、竣工验收等</p>
+								<a href="#" class="text-green-600 text-sm hover:underline">在线办理 <i class="fas fa-arrow-right ml-1"></i></a>
+							</div>
+						</div>
+					</div>
+
+					<div class="bg-gray-50 rounded-lg p-4 border border-gray-200 hover:border-green-500 transition-colors duration-300">
+						<div class="flex items-start">
+							<div class="bg-red-100 p-2 rounded-lg mr-4">
+								<i class="fas fa-users text-red-600 text-xl"></i>
+							</div>
+							<div>
+								<h3 class="font-bold text-gray-800 mb-1">人力资源</h3>
+								<p class="text-gray-600 text-sm mb-2">用工登记、社保缴纳、人才引进等</p>
+								<a href="#" class="text-green-600 text-sm hover:underline">在线办理 <i class="fas fa-arrow-right ml-1"></i></a>
+							</div>
+						</div>
+					</div>
+
+					<div class="bg-gray-50 rounded-lg p-4 border border-gray-200 hover:border-green-500 transition-colors duration-300">
+						<div class="flex items-start">
+							<div class="bg-indigo-100 p-2 rounded-lg mr-4">
+								<i class="fas fa-chart-line text-indigo-600 text-xl"></i>
+							</div>
+							<div>
+								<h3 class="font-bold text-gray-800 mb-1">扶持政策</h3>
+								<p class="text-gray-600 text-sm mb-2">产业扶持、税收优惠、补贴申请等</p>
+								<a href="#" class="text-green-600 text-sm hover:underline">在线办理 <i class="fas fa-arrow-right ml-1"></i></a>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="mt-6 text-center">
+					<a href="#" class="inline-block bg-green-600 text-white px-6 py-2 rounded-md hover:bg-green-700 transition-colors duration-300">
+						查看更多企业服务 <i class="fas fa-chevron-down ml-1"></i>
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<!-- 部门服务 -->
+		<div id="department" class="bg-white rounded-lg shadow-md overflow-hidden mb-8">
+			<div class="bg-purple-700 text-white px-6 py-4">
+				<h2 class="text-2xl font-bold">部门服务</h2>
+			</div>
+			<div class="p-6">
+				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+					<!-- 服务项目 -->
+					<div class="bg-gray-50 rounded-lg p-4 border border-gray-200 hover:border-purple-500 transition-colors duration-300">
+						<div class="flex items-start">
+							<div class="bg-purple-100 p-2 rounded-lg mr-4">
+								<i class="fas fa-landmark text-purple-600 text-xl"></i>
+							</div>
+							<div>
+								<h3 class="font-bold text-gray-800 mb-1">发改委</h3>
+								<p class="text-gray-600 text-sm mb-2">项目审批、投资备案、产业政策等</p>
+								<a href="#" class="text-purple-600 text-sm hover:underline">进入服务 <i class="fas fa-arrow-right ml-1"></i></a>
+							</div>
+						</div>
+					</div>
+
+					<div class="bg-gray-50 rounded-lg p-4 border border-gray-200 hover:border-purple-500 transition-colors duration-300">
+						<div class="flex items-start">
+							<div class="bg-blue-100 p-2 rounded-lg mr-4">
+								<i class="fas fa-gavel text-blue-600 text-xl"></i>
+							</div>
+							<div>
+								<h3 class="font-bold text-gray-800 mb-1">公安局</h3>
+								<p class="text-gray-600 text-sm mb-2">治安管理、出入境、交通管理等</p>
+								<a href="#" class="text-purple-600 text-sm hover:underline">进入服务 <i class="fas fa-arrow-right ml-1"></i></a>
+							</div>
+						</div>
+					</div>
+
+					<div class="bg-gray-50 rounded-lg p-4 border border-gray-200 hover:border-purple-500 transition-colors duration-300">
+						<div class="flex items-start">
+							<div class="bg-green-100 p-2 rounded-lg mr-4">
+								<i class="fas fa-leaf text-green-600 text-xl"></i>
+							</div>
+							<div>
+								<h3 class="font-bold text-gray-800 mb-1">生态环境局</h3>
+								<p class="text-gray-600 text-sm mb-2">环评审批、排污许可、环保验收等</p>
+								<a href="#" class="text-purple-600 text-sm hover:underline">进入服务 <i class="fas fa-arrow-right ml-1"></i></a>
+							</div>
+						</div>
+					</div>
+
+					<div class="bg-gray-50 rounded-lg p-4 border border-gray-200 hover:border-purple-500 transition-colors duration-300">
+						<div class="flex items-start">
+							<div class="bg-yellow-100 p-2 rounded-lg mr-4">
+								<i class="fas fa-home text-yellow-600 text-xl"></i>
+							</div>
+							<div>
+								<h3 class="font-bold text-gray-800 mb-1">住建局</h3>
+								<p class="text-gray-600 text-sm mb-2">房产管理、工程建设、住房保障等</p>
+								<a href="#" class="text-purple-600 text-sm hover:underline">进入服务 <i class="fas fa-arrow-right ml-1"></i></a>
+							</div>
+						</div>
+					</div>
+
+					<div class="bg-gray-50 rounded-lg p-4 border border-gray-200 hover:border-purple-500 transition-colors duration-300">
+						<div class="flex items-start">
+							<div class="bg-red-100 p-2 rounded-lg mr-4">
+								<i class="fas fa-heartbeat text-red-600 text-xl"></i>
+							</div>
+							<div>
+								<h3 class="font-bold text-gray-800 mb-1">卫健委</h3>
+								<p class="text-gray-600 text-sm mb-2">医疗机构审批、执业许可、卫生监督等</p>
+								<a href="#" class="text-purple-600 text-sm hover:underline">进入服务 <i class="fas fa-arrow-right ml-1"></i></a>
+							</div>
+						</div>
+					</div>
+
+					<div class="bg-gray-50 rounded-lg p-4 border border-gray-200 hover:border-purple-500 transition-colors duration-300">
+						<div class="flex items-start">
+							<div class="bg-indigo-100 p-2 rounded-lg mr-4">
+								<i class="fas fa-graduation-cap text-indigo-600 text-xl"></i>
+							</div>
+							<div>
+								<h3 class="font-bold text-gray-800 mb-1">教育局</h3>
+								<p class="text-gray-600 text-sm mb-2">学校审批、教师资格、招生考试等</p>
+								<a href="#" class="text-purple-600 text-sm hover:underline">进入服务 <i class="fas fa-arrow-right ml-1"></i></a>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="mt-6 text-center">
+					<a href="#" class="inline-block bg-purple-600 text-white px-6 py-2 rounded-md hover:bg-purple-700 transition-colors duration-300">
+						查看更多部门服务 <i class="fas fa-chevron-down ml-1"></i>
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<!-- 便民服务 -->
+		<div id="convenience" class="bg-white rounded-lg shadow-md overflow-hidden mb-8">
+			<div class="bg-yellow-600 text-white px-6 py-4">
+				<h2 class="text-2xl font-bold">便民服务</h2>
+			</div>
+			<div class="p-6">
+				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+					<!-- 服务项目 -->
+					<div class="bg-gray-50 rounded-lg p-4 border border-gray-200 hover:border-yellow-500 transition-colors duration-300">
+						<div class="flex items-start">
+							<div class="bg-yellow-100 p-2 rounded-lg mr-4">
+								<i class="fas fa-bus text-yellow-600 text-xl"></i>
+							</div>
+							<div>
+								<h3 class="font-bold text-gray-800 mb-1">公交查询</h3>
+								<p class="text-gray-600 text-sm mb-2">实时公交、线路查询、站点信息等</p>
+								<a href="#" class="text-yellow-600 text-sm hover:underline">进入服务 <i class="fas fa-arrow-right ml-1"></i></a>
+							</div>
+						</div>
+					</div>
+
+					<div class="bg-gray-50 rounded-lg p-4 border border-gray-200 hover:border-yellow-500 transition-colors duration-300">
+						<div class="flex items-start">
+							<div class="bg-blue-100 p-2 rounded-lg mr-4">
+								<i class="fas fa-tint text-blue-600 text-xl"></i>
+							</div>
+							<div>
+								<h3 class="font-bold text-gray-800 mb-1">水电燃气</h3>
+								<p class="text-gray-600 text-sm mb-2">生活缴费、账单查询、报装报修等</p>
+								<a href="#" class="text-yellow-600 text-sm hover:underline">进入服务 <i class="fas fa-arrow-right ml-1"></i></a>
+							</div>
+						</div>
+					</div>
+
+					<div class="bg-gray-50 rounded-lg p-4 border border-gray-200 hover:border-yellow-500 transition-colors duration-300">
+						<div class="flex items-start">
+							<div class="bg-green-100 p-2 rounded-lg mr-4">
+								<i class="fas fa-hospital text-green-600 text-xl"></i>
+							</div>
+							<div>
+								<h3 class="font-bold text-gray-800 mb-1">医疗健康</h3>
+								<p class="text-gray-600 text-sm mb-2">预约挂号、体检预约、疫苗接种等</p>
+								<a href="#" class="text-yellow-600 text-sm hover:underline">进入服务 <i class="fas fa-arrow-right ml-1"></i></a>
+							</div>
+						</div>
+					</div>
+
+					<div class="bg-gray-50 rounded-lg p-4 border border-gray-200 hover:border-yellow-500 transition-colors duration-300">
+						<div class="flex items-start">
+							<div class="bg-purple-100 p-2 rounded-lg mr-4">
+								<i class="fas fa-parking text-purple-600 text-xl"></i>
+							</div>
+							<div>
+								<h3 class="font-bold text-gray-800 mb-1">停车服务</h3>
+								<p class="text-gray-600 text-sm mb-2">停车场查询、停车缴费、车位预约等</p>
+								<a href="#" class="text-yellow-600 text-sm hover:underline">进入服务 <i class="fas fa-arrow-right ml-1"></i></a>
+							</div>
+						</div>
+					</div>
+
+					<div class="bg-gray-50 rounded-lg p-4 border border-gray-200 hover:border-yellow-500 transition-colors duration-300">
+						<div class="flex items-start">
+							<div class="bg-red-100 p-2 rounded-lg mr-4">
+								<i class="fas fa-utensils text-red-600 text-xl"></i>
+							</div>
+							<div>
+								<h3 class="font-bold text-gray-800 mb-1">餐饮服务</h3>
+								<p class="text-gray-600 text-sm mb-2">食品安全、餐厅评级、投诉举报等</p>
+								<a href="#" class="text-yellow-600 text-sm hover:underline">进入服务 <i class="fas fa-arrow-right ml-1"></i></a>
+							</div>
+						</div>
+					</div>
+
+					<div class="bg-gray-50 rounded-lg p-4 border border-gray-200 hover:border-yellow-500 transition-colors duration-300">
+						<div class="flex items-start">
+							<div class="bg-indigo-100 p-2 rounded-lg mr-4">
+								<i class="fas fa-book text-indigo-600 text-xl"></i>
+							</div>
+							<div>
+								<h3 class="font-bold text-gray-800 mb-1">文化休闲</h3>
+								<p class="text-gray-600 text-sm mb-2">图书馆、博物馆、公园景区等</p>
+								<a href="#" class="text-yellow-600 text-sm hover:underline">进入服务 <i class="fas fa-arrow-right ml-1"></i></a>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="mt-6 text-center">
+					<a href="#" class="inline-block bg-yellow-500 text-white px-6 py-2 rounded-md hover:bg-yellow-600 transition-colors duration-300">
+						查看更多便民服务 <i class="fas fa-chevron-down ml-1"></i>
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<!-- 在线办事指南 -->
+		<div class="bg-white rounded-lg shadow-md overflow-hidden mb-8">
+			<div class="bg-blue-800 text-white px-6 py-4">
+				<h2 class="text-2xl font-bold">在线办事指南</h2>
+			</div>
+			<div class="p-6">
+				<div class="flex flex-col md:flex-row gap-6">
+					<div class="md:w-1/2">
+						<h3 class="text-xl font-bold text-gray-800 mb-4">办事流程</h3>
+						<div class="space-y-4">
+							<div class="flex items-start">
+								<div class="bg-blue-100 text-blue-600 w-8 h-8 rounded-full flex items-center justify-center mr-4 flex-shrink-0">1</div>
+								<div>
+									<h4 class="font-bold text-gray-800">选择服务</h4>
+									<p class="text-gray-600 text-sm">在办事服务分类中选择您需要的服务项目</p>
+								</div>
+							</div>
+
+							<div class="flex items-start">
+								<div class="bg-blue-100 text-blue-600 w-8 h-8 rounded-full flex items-center justify-center mr-4 flex-shrink-0">2</div>
+								<div>
+									<h4 class="font-bold text-gray-800">填写信息</h4>
+									<p class="text-gray-600 text-sm">按照要求填写相关信息并上传必要材料</p>
+								</div>
+							</div>
+
+							<div class="flex items-start">
+								<div class="bg-blue-100 text-blue-600 w-8 h-8 rounded-full flex items-center justify-center mr-4 flex-shrink-0">3</div>
+								<div>
+									<h4 class="font-bold text-gray-800">提交申请</h4>
+									<p class="text-gray-600 text-sm">确认信息无误后提交申请</p>
+								</div>
+							</div>
+
+							<div class="flex items-start">
+								<div class="bg-blue-100 text-blue-600 w-8 h-8 rounded-full flex items-center justify-center mr-4 flex-shrink-0">4</div>
+								<div>
+									<h4 class="font-bold text-gray-800">查询进度</h4>
+									<p class="text-gray-600 text-sm">通过个人中心查询办理进度</p>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="md:w-1/2">
+						<h3 class="text-xl font-bold text-gray-800 mb-4">常见问题</h3>
+						<div class="space-y-4">
+							<div class="border-b border-gray-200 pb-4">
+								<h4 class="font-bold text-gray-800 mb-2">如何查询办事进度？</h4>
+								<p class="text-gray-600 text-sm">登录个人中心，在"我的办事"中可查看所有申请的办理进度。</p>
+							</div>
+
+							<div class="border-b border-gray-200 pb-4">
+								<h4 class="font-bold text-gray-800 mb-2">需要准备哪些材料？</h4>
+								<p class="text-gray-600 text-sm">每个服务项目页面都有详细的材料清单，请仔细阅读。</p>
+							</div>
+
+							<div class="border-b border-gray-200 pb-4">
+								<h4 class="font-bold text-gray-800 mb-2">办理时限是多久？</h4>
+								<p class="text-gray-600 text-sm">不同事项办理时限不同，一般在3-15个工作日内完成。</p>
+							</div>
+
+							<div class="pb-2">
+								<h4 class="font-bold text-gray-800 mb-2">如何获取办理结果？</h4>
+								<p class="text-gray-600 text-sm">办理完成后会通过短信通知，也可在个人中心下载电子证照或查看结果。</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+    <!--#include virtual="/include/common/e193da98-10e6-4bf5-8294-e3f009a5c9bd.html"--> 
+</body>
+</html>

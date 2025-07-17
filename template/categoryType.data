@@ -1,0 +1,1 @@
+{"enname":{"id":"enname","name":"英文名","onlyUrl":false,"sort":0,"templatePath":"","path":"","containChild":false,"pageSize":20,"extendList":[{"id":{"code":"enName"},"required":false,"searchable":false,"sortable":null,"maxlength":null,"width":null,"height":null,"name":"英文名","description":"","inputType":"text","defaultValue":"","dictionaryId":"","multiple":false,"sort":1}]}}

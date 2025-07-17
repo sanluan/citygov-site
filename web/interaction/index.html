@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>互动交流 - 政府网站模板</title>
+	<meta name="keywords" content=""/>
+	<meta name="description" content=""/>
+	<!--#include virtual="/include/common/5263183d-e47a-43e8-b159-bde076425459.html"--> 
+</head>
+<body class="font-sans bg-gray-50">
+    <!--#include virtual="/include/common/e01f6695-8132-4bef-97b6-d6505e6f8785.html"--> 
+
+    <!-- 互动交流页面 -->
+    <main class="container mx-auto px-4 py-4">
+<!-- 面包屑导航 -->
+<nav class="breadcrumb">
+	<ol class="flex items-center" data-diy="category">
+		<li class="breadcrumb-item"><a href="http://gov.demo.publiccms.com/">首页</a></li>
+			<li class="breadcrumb-item active" data-diy-item="154">互动交流</li>
+	</ol>
+</nav>
+
+		<h1 class="text-3xl font-bold text-gray-800 mb-8">互动交流</h1>
+
+		<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+			<!-- 左侧内容 -->
+			<div class="lg:col-span-2">
+				<!-- 市长信箱 -->
+				<div class="bg-white rounded-lg shadow-md overflow-hidden mb-8">
+					<div class="bg-blue-800 text-white px-6 py-4">
+						<h2 class="text-xl font-bold"><i class="fas fa-envelope mr-2"></i>市长信箱</h2>
+					</div>
+					<div class="p-6">
+						<p class="text-gray-700 mb-6">欢迎您通过市长信箱反映问题、提出建议。我们将认真对待每一封来信，并及时转交相关部门办理。</p>
+
+						<div class="bg-blue-50 border-l-4 border-blue-500 p-4 mb-6">
+							<div class="flex">
+								<div class="flex-shrink-0">
+									<i class="fas fa-info-circle text-blue-500"></i>
+								</div>
+								<div class="ml-3">
+									<p class="text-sm text-blue-700">
+										请如实填写信件内容，遵守法律法规。我们将在5个工作日内给予答复，复杂问题适当延长。
+									</p>
+								</div>
+							</div>
+						</div>
+
+						<form>
+							<div class="mb-4">
+								<label class="block text-gray-700 text-sm font-bold mb-2" for="name">
+									姓名 <span class="text-red-500">*</span>
+								</label>
+								<input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="name" type="text" placeholder="请输入您的姓名" required>
+							</div>
+
+							<div class="mb-4">
+								<label class="block text-gray-700 text-sm font-bold mb-2" for="contact">
+									联系方式 <span class="text-red-500">*</span>
+								</label>
+								<input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="contact" type="text" placeholder="电话/邮箱" required>
+							</div>
+
+							<div class="mb-4">
+								<label class="block text-gray-700 text-sm font-bold mb-2" for="title">
+									信件标题 <span class="text-red-500">*</span>
+								</label>
+								<input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="title" type="text" placeholder="请输入信件标题" required>
+							</div>
+
+							<div class="mb-4">
+								<label class="block text-gray-700 text-sm font-bold mb-2" for="type">
+									信件类型 <span class="text-red-500">*</span>
+								</label>
+								<select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="type" required>
+									<option value="">请选择信件类型</option>
+									<option value="complaint">投诉举报</option>
+									<option value="suggestion">意见建议</option>
+									<option value="consult">咨询求助</option>
+									<option value="other">其他</option>
+								</select>
+							</div>
+
+							<div class="mb-4">
+								<label class="block text-gray-700 text-sm font-bold mb-2" for="content">
+									信件内容 <span class="text-red-500">*</span>
+								</label>
+								<textarea class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="content" rows="6" placeholder="请详细描述您的问题或建议" required></textarea>
+							</div>
+
+							<div class="mb-4">
+								<label class="block text-gray-700 text-sm font-bold mb-2" for="file">
+									附件上传
+								</label>
+								<div class="flex items-center justify-center w-full">
+									<label class="flex flex-col w-full h-32 border-2 border-dashed hover:border-blue-500 hover:bg-gray-100 rounded-md cursor-pointer">
+										<div class="flex flex-col items-center justify-center pt-7">
+											<i class="fas fa-cloud-upload-alt text-3xl text-gray-400"></i>
+											<p class="pt-1 text-sm text-gray-500">点击或拖拽文件到此处上传</p>
+										</div>
+										<input type="file" class="opacity-0" id="file" multiple>
+									</label>
+								</div>
+							</div>
+
+							<div class="flex items-center justify-between">
+								<button class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded focus:outline-none focus:shadow-outline" type="submit">
+									提交信件
+								</button>
+								<a href="#" class="inline-block align-baseline font-bold text-sm text-blue-600 hover:text-blue-800">
+									查看写信须知
+								</a>
+							</div>
+						</form>
+					</div>
+				</div>
+
+				<!-- 常见问题 -->
+				<div class="bg-white rounded-lg shadow-md overflow-hidden mb-8">
+					<div class="bg-blue-800 text-white px-6 py-4">
+						<h2 class="text-xl font-bold"><i class="fas fa-question-circle mr-2"></i>常见问题</h2>
+					</div>
+					<div class="p-6">
+						<div class="space-y-4">
+							<div class="border-b border-gray-200 pb-4">
+								<h3 class="text-lg font-medium text-gray-900 mb-2">如何查询信件办理进度？</h3>
+								<p class="text-gray-600">您可以通过"信件查询"功能，输入信件编号和验证码查询办理进度。信件编号将在您提交信件后通过短信或邮件发送给您。</p>
+							</div>
+							<div class="border-b border-gray-200 pb-4">
+								<h3 class="text-lg font-medium text-gray-900 mb-2">信件提交后多久能得到回复？</h3>
+								<p class="text-gray-600">一般问题我们将在5个工作日内给予答复，复杂问题适当延长。紧急问题建议直接拨打12345政务服务热线。</p>
+							</div>
+							<div class="border-b border-gray-200 pb-4">
+								<h3 class="text-lg font-medium text-gray-900 mb-2">哪些问题不适合通过市长信箱反映？</h3>
+								<p class="text-gray-600">涉及个人隐私、商业机密、正在审理的司法案件、信访事项等不适合通过市长信箱反映，建议通过其他法定渠道提出。</p>
+							</div>
+							<div>
+								<h3 class="text-lg font-medium text-gray-900 mb-2">如何提高信件办理效率？</h3>
+								<p class="text-gray-600">请尽可能详细描述问题，提供准确的时间、地点、人物等信息，并留下有效联系方式以便工作人员核实情况。</p>
+							</div>
+						</div>
+						<div class="mt-6 text-center">
+							<a href="#" class="text-blue-600 hover:text-blue-800 font-medium">查看更多常见问题 <i class="fas fa-angle-right ml-1"></i></a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- 右侧边栏 -->
+			<div class="space-y-6">
+				<!-- 热点回应 -->
+				<div class="bg-white rounded-lg shadow-md overflow-hidden">
+					<div class="bg-blue-800 text-white px-4 py-3 flex justify-between items-center">
+						<h3 class="font-bold"><i class="fas fa-fire mr-2"></i>热点回应</h3>
+						<a href="#" class="text-blue-200 hover:text-white text-sm">更多 ></a>
+					</div>
+					<div class="p-4">
+						<div class="space-y-4">
+							<div class="message-card bg-gray-50 p-4 rounded-md border-l-2 border-transparent cursor-pointer">
+								<div class="flex justify-between items-start">
+									<h4 class="font-medium text-gray-800">关于新星大道改造工程的咨询</h4>
+									<span class="text-xs text-gray-500">2023-11-10</span>
+								</div>
+								<p class="text-sm text-gray-600 mt-1 line-clamp-2">新星大道改造工程预计何时完工？施工期间交通如何组织？</p>
+							</div>
+							<div class="message-card bg-gray-50 p-4 rounded-md border-l-2 border-transparent cursor-pointer">
+								<div class="flex justify-between items-start">
+									<h4 class="font-medium text-gray-800">关于学区划分的疑问</h4>
+									<span class="text-xs text-gray-500">2023-11-08</span>
+								</div>
+								<p class="text-sm text-gray-600 mt-1 line-clamp-2">为什么我们小区被划入较远的学校而不是附近的新建学校？</p>
+							</div>
+							<div class="message-card bg-gray-50 p-4 rounded-md border-l-2 border-transparent cursor-pointer">
+								<div class="flex justify-between items-start">
+									<h4 class="font-medium text-gray-800">关于医保报销比例调整的建议</h4>
+									<span class="text-xs text-gray-500">2023-11-05</span>
+								</div>
+								<p class="text-sm text-gray-600 mt-1 line-clamp-2">能否提高慢性病患者的医保报销比例？</p>
+							</div>
+							<div class="message-card bg-gray-50 p-4 rounded-md border-l-2 border-transparent cursor-pointer">
+								<div class="flex justify-between items-start">
+									<h4 class="font-medium text-gray-800">关于公园噪音管理的投诉</h4>
+									<span class="text-xs text-gray-500">2023-11-03</span>
+								</div>
+								<p class="text-sm text-gray-600 mt-1 line-clamp-2">公园广场舞噪音扰民问题何时能解决？</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- 在线调查 -->
+				<div class="bg-white rounded-lg shadow-md overflow-hidden">
+					<div class="bg-blue-800 text-white px-4 py-3 flex justify-between items-center">
+						<h3 class="font-bold"><i class="fas fa-poll mr-2"></i>在线调查</h3>
+						<a href="#" class="text-blue-200 hover:text-white text-sm">更多 ></a>
+					</div>
+					<div class="p-4">
+						<h4 class="font-medium text-gray-800 mb-3">您对新星市公共交通服务满意吗？</h4>
+						<div class="space-y-3">
+							<div>
+								<div class="flex justify-between mb-1">
+									<span class="text-sm font-medium text-gray-700">非常满意</span>
+									<span class="text-sm font-medium text-gray-700">32%</span>
+								</div>
+								<div class="w-full bg-gray-200 rounded-full h-2">
+									<div class="bg-green-500 h-2 rounded-full" style="width: 32%"></div>
+								</div>
+							</div>
+							<div>
+								<div class="flex justify-between mb-1">
+									<span class="text-sm font-medium text-gray-700">满意</span>
+									<span class="text-sm font-medium text-gray-700">45%</span>
+								</div>
+								<div class="w-full bg-gray-200 rounded-full h-2">
+									<div class="bg-blue-500 h-2 rounded-full" style="width: 45%"></div>
+								</div>
+							</div>
+							<div>
+								<div class="flex justify-between mb-1">
+									<span class="text-sm font-medium text-gray-700">一般</span>
+									<span class="text-sm font-medium text-gray-700">15%</span>
+								</div>
+								<div class="w-full bg-gray-200 rounded-full h-2">
+									<div class="bg-yellow-500 h-2 rounded-full" style="width: 15%"></div>
+								</div>
+							</div>
+							<div>
+								<div class="flex justify-between mb-1">
+									<span class="text-sm font-medium text-gray-700">不满意</span>
+									<span class="text-sm font-medium text-gray-700">8%</span>
+								</div>
+								<div class="w-full bg-gray-200 rounded-full h-2">
+									<div class="bg-red-500 h-2 rounded-full" style="width: 8%"></div>
+								</div>
+							</div>
+						</div>
+						<div class="mt-4 text-center">
+							<a href="#" class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm">参与调查</a>
+						</div>
+					</div>
+				</div>
+
+				<!-- 互动渠道 -->
+				<div class="bg-white rounded-lg shadow-md overflow-hidden">
+					<div class="bg-blue-800 text-white px-4 py-3">
+						<h3 class="font-bold"><i class="fas fa-comments mr-2"></i>互动渠道</h3>
+					</div>
+					<div class="p-4 grid grid-cols-2 gap-3">
+						<a href="#" class="flex flex-col items-center p-3 bg-gray-50 rounded-md hover:bg-blue-50">
+							<div class="bg-blue-100 p-3 rounded-full mb-2">
+								<i class="fas fa-phone-alt text-blue-600"></i>
+							</div>
+							<span class="text-sm font-medium">12345热线</span>
+						</a>
+						<a href="#" class="flex flex-col items-center p-3 bg-gray-50 rounded-md hover:bg-blue-50">
+							<div class="bg-green-100 p-3 rounded-full mb-2">
+								<i class="fab fa-weixin text-green-600"></i>
+							</div>
+							<span class="text-sm font-medium">微信平台</span>
+						</a>
+						<a href="#" class="flex flex-col items-center p-3 bg-gray-50 rounded-md hover:bg-blue-50">
+							<div class="bg-purple-100 p-3 rounded-full mb-2">
+								<i class="fab fa-weibo text-purple-600"></i>
+							</div>
+							<span class="text-sm font-medium">微博平台</span>
+						</a>
+						<a href="#" class="flex flex-col items-center p-3 bg-gray-50 rounded-md hover:bg-blue-50">
+							<div class="bg-red-100 p-3 rounded-full mb-2">
+								<i class="fas fa-desktop text-red-600"></i>
+							</div>
+							<span class="text-sm font-medium">在线访谈</span>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+
+    <!--#include virtual="/include/common/e193da98-10e6-4bf5-8294-e3f009a5c9bd.html"--> 
+</body>
+</html>

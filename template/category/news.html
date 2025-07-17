@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="UTF-8">
+    <title>${(attribute.title)?has_content?then(attribute.title,category.name)} - ${site.name}</title>
+	<meta name="keywords" content="${(attribute.keywords)!}"/>
+	<meta name="description" content="${(attribute.description)!}"/>
+	<@tools.includePlace path="/common/5263183d-e47a-43e8-b159-bde076425459.html"/> <#-- head -->
+</head>
+<body class="font-sans bg-gray-50">
+    <@tools.includePlace path="/common/e01f6695-8132-4bef-97b6-d6505e6f8785.html"/> <#-- nav -->
+
+    <main class="container mx-auto px-4 py-4">
+		<@include path="/fragment/bread.html"/><#-- 面包屑导航 -->
+
+		<div class="bg-white rounded-lg shadow-md overflow-hidden mb-8">
+			<div class="bg-blue-800 text-white px-6 py-4" data-diy="category">
+				<@cms.category id=category.parentId!category.id containsAttribute=true;category>
+				<h1 class="text-2xl font-bold" data-diy-item="${category.id}">${category.name}</h1>
+				<p class="mt-2 text-blue-200">${category.attribute.enName!}</p>
+				</@cms.category>
+			</div>
+			<#if category.parentId?has_content>
+			<!-- 标签导航 -->
+			<div class="border-b border-gray-200">
+				<@cms.categoryList parentId=category.parentId>
+				<div class="flex overflow-x-auto" data-diy="child-category">
+					<#list page.list as a>
+					<a href="${a.url}" class="px-6 py-4 font-medium<#if category.id=a.id> text-blue-600 border-b-2 border-blue-600<#else>text-gray-600 hover:text-blue-600</#if>">${a.name}</a>
+					</#list>
+				</div>
+				</@cms.categoryList>
+			</div>
+			</#if>
+
+			<!-- 内容列表 -->
+			<@cms.contentList categoryId=category.id containChild=category.containChild containsAttribute=true pageIndex=pageIndex pageSize=category.pageSize>
+			<div class="space-y-6 p-6"  data-diy="content">
+				<#list page.list as content>
+				<div class="border-b border-gray-100 pb-6" data-diy-item="${content.id}">
+					<div class="flex flex-col md:flex-row md:items-center justify-between mb-2">
+						<a href="<#if content.onlyUrl>${site.dynamicPath}content/redirect?id=${a.id}<#else>${content.url}</#if>" class="text-lg font-medium text-blue-600 hover:text-blue-800">${content.title}</a>
+						<#if content.attribute.docno?has_content>
+						<span class="text-sm text-gray-500 mt-1 md:mt-0">${content.attribute.docno}</span>
+						</#if>
+					</div>
+					<p class="text-gray-600 mb-2">${content.description!}</p>
+					<div class="flex items-center text-sm text-gray-500">
+						<span class="mr-4"><i class="fas fa-calendar-alt mr-1"></i> ${content.publishDate?date}</span>
+					</div>
+				</div>
+				</#list>
+
+				<!-- 分页 -->
+				<div class="flex justify-center mt-8">
+					<nav class="inline-flex rounded-md shadow">
+						<a href="${getPage(url,page.prePage)}" class="px-3 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">上一页</a>
+						<#assign start=1/>
+						<#if (page.pageIndex-5) gt start>
+						<#assign start=page.pageIndex-4/>
+						</#if>
+						<#assign max=page.totalPage/>
+						<#if 100 lt max>
+						<#assign max=100/>
+						</#if>
+						<#assign end=max/>
+						<#if (page.pageIndex+5) lt end>
+						<#assign end=page.pageIndex+4/>
+						</#if>
+						<#if start gt 1>
+						<a href="${getPage(url,1)}" class="px-3 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">1</a>
+						<span class="px-3 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">...</span>
+						</#if>
+						<#list start..end as a>
+						<a href="${getPage(url,a)}" class="px-3 py-2 border border-gray-300 bg-white text-sm font-medium<#if a=page.pageIndex> text-blue-600 hover:bg-blue-50<#else> text-gray-500 hover:bg-gray-50</#if>">${a}</a>
+						</#list>
+						<#if end lt max>
+						<span class="px-3 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">...</span>
+						<a href="${getPage(url,max)}" class="px-3 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">${max}</a>
+						</#if>
+						<a href="${getPage(url,page.nextPage)}" class="px-3 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">下一页</a>
+					</nav>
+				</div>
+
+			</div>
+			</@cms.contentList>
+
+		</div>
+	</main>
+	
+	<script>
+		var templatePath='${.current_template_name?keep_after('/')}';
+		var itemString="itemType=category&itemId=${category.id}";
+	</script>
+    <@tools.includePlace path="/common/e193da98-10e6-4bf5-8294-e3f009a5c9bd.html"/> <#-- footer -->
+</body>
+</html>

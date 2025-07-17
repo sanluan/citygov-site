@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>关于11月16日新星大道部分路段交通管制的通告 - 通知公告 - 政府网站模板</title>
+	<meta name="keywords" content="关于,11,月,16,日,新星,大道,部分,路段,交通,管制,的,通告"/>
+    <meta name="description" content="关于11月16日新星大道部分路段交通管制的通告"/>
+    <script src="http://gov.demo.publiccms.com/assets/js/tailwindcss.js"></script>
+    <link href="http://gov.demo.publiccms.com/assets/font-awesome/css/all.min.css" rel="stylesheet">
+    <link href="http://gov.demo.publiccms.com/assets/css/style.css" rel="stylesheet">
+</head>
+<body class="font-sans bg-gray-50">
+    
+    <!--#include virtual="/include/common/e01f6695-8132-4bef-97b6-d6505e6f8785.html"--> 
+
+	<!-- 新闻详情页内容 -->
+	<main class="container mx-auto px-4 py-8">
+<!-- 面包屑导航 -->
+<nav class="breadcrumb">
+	<ol class="flex items-center" data-diy="category">
+		<li class="breadcrumb-item"><a href="http://gov.demo.publiccms.com/">首页</a></li>
+			<li class="breadcrumb-item" data-diy-item="166"><a href="http://gov.demo.publiccms.com/notice/">通知公告</a></li>
+			<li class="breadcrumb-item active">关于11月16日新星大道部分路段交通管制的通告</li>
+	</ol>
+</nav>
+
+		<div class="bg-white rounded-lg shadow-md overflow-hidden">
+			<!-- 新闻标题 -->
+			<div class="border-b border-gray-200 px-6 py-4">
+				<h1 class="text-2xl md:text-3xl font-bold text-gray-800 mb-6">关于11月16日新星大道部分路段交通管制的通告</h1>
+				<div class="flex flex-wrap items-center text-sm text-gray-600">
+					
+					<span class="mr-4"><i class="fas fa-calendar-alt mr-1"></i> 2025-04-12</span>
+					
+					<span><i class="fas fa-eye mr-1"></i> 阅读量：<span id="clicks">...</span></span>
+				</div>
+			</div>
+
+			<!-- 新闻内容 -->
+			<div class="px-6 py-8">
+
+				<div class="prose max-w-none">
+					<p>关于11月16日新星大道部分路段交通管制的通告</p>
+				</div>
+
+				<div class="flex items-center justify-between mt-12 pt-6 border-t border-gray-200">
+					<div>
+						<p class="text-sm text-gray-500">上一篇：</p>
+						<a href="http://gov.demo.publiccms.com/content/2025/04-12/7316775751766773760.html" class="text-blue-600 hover:text-blue-800">新星市2023年第四批保障性住房摇号结果公示</a>
+					</div>
+					<div class="text-right">
+						<p class="text-sm text-gray-500">下一篇：</p>
+						<a href="http://gov.demo.publiccms.com/content/2025/04-12/7316775847308824576.html" class="text-blue-600 hover:text-blue-800">关于11月16日新星大道部分路段交通管制的通告</a>
+					</div>
+				</div>
+
+				<!-- 相关文件 -->
+				<div class="mt-8 border-t pt-6">
+					<h3 class="text-lg font-medium mb-4"><i class="fas fa-link mr-2"></i>相关文章</h3>
+					<ul class="space-y-2">
+						<li><a href="http://gov.demo.publiccms.com/content/2025/04-12/7316775751766773760.html" class="text-blue-600 hover:underline">• 新星市2023年第四批保障性住房摇号结果公示</a></li>
+						<li><a href="http://gov.demo.publiccms.com/content/2025/04-12/7316775648347820032.html" class="text-blue-600 hover:underline">• 新星市生态环境局关于建设项目环境影响评价审批决定的公告</a></li>
+						<li><a href="http://gov.demo.publiccms.com/content/2025/04-12/7316771520326406144.html" class="text-blue-600 hover:underline">• 关于调整新星市城乡居民基本医疗保险缴费标准的通知</a></li>
+					</ul>
+				</div>
+
+			</div>
+		</div>
+	</main>
+    <!--#include virtual="/include/common/e193da98-10e6-4bf5-8294-e3f009a5c9bd.html"--> 
+	<script src="http://govcms.demo.publiccms.com/resource/plugins/ueditor/ueditor.parse.min.js"></script>
+    <script>
+		fetch('http://govcms.demo.publiccms.com/api/contentClick?id=7316775847308824576')
+		.then(response => {
+			if (response.ok) {
+				return response.json();
+			}
+		})
+		.then(data => {
+			if(data.clicks > 100000){
+               document.getElementById('clicks').textContent="10万+";
+			} else if(data.clicks <10000){
+                document.getElementById('clicks').textContent=data.clicks;
+			} else {
+				 document.getElementById('clicks').textContent=((data.clicks/10000)|0)+"万+";
+            }
+		})
+		.catch(error => {
+			console.error('error', error);
+		});
+        uParse('#content',{rootPath: 'http://govcms.demo.publiccms.com/resource/plugins/ueditor/'});
+    </script>
+</body>
+</html>

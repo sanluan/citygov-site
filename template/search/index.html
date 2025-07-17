@@ -1,0 +1,256 @@
+<#if time?has_content && ["lastWeek","lastMonth","lastYear"]?seq_contains(time)>
+	<#assign startPublishDate=getDate(time) 
+	 	endPublishDate="" />
+</#if>
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="UTF-8">
+    <title>${site.name} - 政务搜索</title>
+    <@tools.includePlace path="/common/5263183d-e47a-43e8-b159-bde076425459.html"/> <#-- head -->
+</head>
+<body class="font-sans bg-gray-50">
+    <@tools.includePlace path="/common/e01f6695-8132-4bef-97b6-d6505e6f8785.html"/> <#-- nav -->
+
+    <!-- 页面内容 -->
+    <main class="container mx-auto px-4 py-4">
+        <!-- 面包屑导航 -->
+        <nav class="bg-gray-100 rounded-lg p-4 mb-6">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="${site.sitePath}">首页</a></li>
+                <li class="breadcrumb-item active">政务搜索</li>
+            </ol>
+        </nav>
+
+        <div class="flex flex-col lg:flex-row gap-6">
+            <!-- 侧边栏筛选 -->
+            <div class="lg:w-1/4">
+				<form action="${site.dynamicPath}search/" name="searchForm">
+                <div class="bg-white rounded-lg shadow-md p-6 sticky top-24">
+                    <h2 class="text-lg font-bold mb-4 pb-2 border-b">筛选条件</h2>
+					
+					<input type="hidden" name="categoryId" value="${categoryId!}">
+					<input type="hidden" name="orderField" value="">
+					<div class="mb-6">
+                         <h3 class="text-sm font-medium text-gray-700 mb-3">搜索词</h3>
+						 <label class="inline-flex items-center">
+							 <input class="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline" type="text" name="wd" value="${word!}">
+						 </label>
+					</div>
+					
+					<div class="mb-6">
+                         <h3 class="text-sm font-medium text-gray-700 mb-3">搜索范围</h3>
+						 <label class="inline-flex items-center">
+                         	<input class="form-checkbox text-blue-600" type="checkbox" name="fields" value="title"<#if fields?has_content && fields?seq_contains("title")> checked="checked"</#if>>
+							<span class="ml-2">标题</span>
+                         </label>
+						<label class="inline-flex items-center">
+                         	<input class="form-checkbox text-blue-600" type="checkbox" name="fields" value="author"<#if fields?has_content && fields?seq_contains("author")> checked="checked"</#if>>
+							<span class="ml-2">作者</span>
+                         </label>
+						<label class="inline-flex items-center">
+                         	<input class="form-checkbox text-blue-600" type="checkbox" name="fields" value="text"<#if fields?has_content && fields?seq_contains("text")> checked="checked"</#if>>
+							<span class="ml-2">正文</span>
+                         </label>
+						<label class="inline-flex items-center">
+                         	<input class="form-checkbox text-blue-600" type="checkbox" name="fields" value="files"<#if fields?has_content && fields?seq_contains("files")> checked="checked"</#if>>
+							<span class="ml-2">附件</span>
+                         </label>
+                    </div>
+					
+					<div class="mb-6">
+                         <h3 class="text-sm font-medium text-gray-700 mb-3">精确搜索</h3>
+						 <label class="inline-flex items-center">
+                         	<input class="form-checkbox text-blue-600" type="checkbox" name="phrase" value="true"<#if phrase?has_content && "true" == phrase> checked="checked"</#if>>
+							<span class="ml-2">精确搜索</span>
+                         </label>
+                    </div>
+					
+                    <!-- 时间范围 -->
+                    <div class="mb-6">
+                        <h3 class="text-sm font-medium text-gray-700 mb-3">发布时间</h3>
+                        <div class="flex flex-col space-y-2">
+                            <label class="inline-flex items-center">
+                                <input type="radio" name="time" value="" class="form-radio text-blue-600"<#if !time?has_content&&!startPublishDate?has_content> checked</#if>>
+                                <span class="ml-2">全部时间</span>
+                            </label>
+                            <label class="inline-flex items-center">
+                                <input type="radio" name="time" value="lastWeek" class="form-radio text-blue-600"<#if time?has_content&&"lastWeek"=time> checked</#if>>
+                                <span class="ml-2">最近一周</span>
+                            </label>
+                            <label class="inline-flex items-center">
+                                <input type="radio" name="time" value="lastMonth" class="form-radio text-blue-600"<#if time?has_content&&"lastMonth"=time> checked</#if>>
+                                <span class="ml-2">最近一月</span>
+                            </label>
+                            <label class="inline-flex items-center">
+                                <input type="radio" name="time" value="lastYear" class="form-radio text-blue-600"<#if time?has_content&&"lastYear"=time> checked</#if>>
+                                <span class="ml-2">最近一年</span>
+                            </label>
+                            <div class="flex items-center space-x-2 mt-2">
+                                <input type="date" name="startPublishDate" value="${startPublishDate!}" class="border rounded px-2 py-1 text-sm w-1/2">
+                                <span>至</span>
+                                <input type="date" name="endPublishDate" value="${endPublishDate!}" class="border rounded px-2 py-1 text-sm w-1/2">
+                            </div>
+                        </div>
+                    </div>                    
+					
+                    <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition-colors">
+                        <i class="fas fa-filter mr-2"></i>应用筛选
+                    </button>
+                </div>
+				</form>
+            </div>
+			<@import path="/fragment/tools.ftl" namespace="t"/><#-- 工具 -->
+			<@cms.facetSearch word=word categoryId=categoryId startPublishDate=startPublishDate endPublishDate=endPublishDate fields=fields highlight=true containChild=true containsAttribute=true orderField=orderField pageIndex=pageIndex pageSize=10> 
+            <#-- 主内容区 -->
+            <div class="lg:w-3/4">
+				
+				<#if page.totalCount gt 0>
+                <!-- 搜索标签 -->
+                <div class="bg-white rounded-lg shadow-md p-4 mb-6">
+					<#list page.facetMap.categoryId?keys as k><@t.merge 'categoryIds' k/></#list>
+					<@cms.category ids=(t.categoryIds)!><#assign categoryMap=map/></@cms.category>
+                    <div class="flex flex-wrap gap-4">
+                        <button onclick="search('categoryId','')" class="search-tab px-4 py-2 font-medium text-gray-600 hover:text-blue-600<#if !categoryId?has_content> text-blue-600 active</#if>">全部</button>
+						<#list page.facetMap.categoryId?keys as filter>
+                        <button onclick="search('categoryId','${filter}')" class="search-tab px-4 py-2 font-medium text-gray-600 hover:text-blue-600<#if categoryId?has_content && filter=(categoryId?string)> active</#if>">${(categoryMap[filter].name)!}(${(page.facetMap.categoryId[filter])!})</button>
+						</#list>
+                    </div>
+					
+                </div>
+
+                <!-- 搜索结果统计 -->
+                <div class="flex justify-between items-center mb-4">
+                    <div class="text-gray-600">
+                        找到约 <span class="text-blue-600 font-medium">${page.totalCount}</span> 条结果
+                    </div>
+                    <div class="flex items-center">
+                        <span class="text-sm text-gray-600 mr-2">排序方式：</span>
+                        <select name="orderField" onchange="search('orderField',this.value);" class="border rounded px-3 py-1 text-sm focus:outline-none focus:ring-1 focus:ring-blue-500">
+                            <option value=""<#if !orderField?has_content> selected="selected"</#if>>相关度</option>
+                            <option value="publishDate"<#if orderField?has_content && "publishDate" == orderField> selected="selected"</#if>>从新到旧</option>
+                            <option value="clicks"<#if orderField?has_content && "clicks" == orderField> selected="selected"</#if>>点击量</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- 搜索结果列表 -->
+                <div class="space-y-4" data-diy="content">
+                    <!-- 搜索结果项1 -->
+					<#list page.list as content>
+                    <div class="search-result-item bg-white rounded-lg shadow-md p-6" data-diy-item="${content.id}">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 bg-blue-100 rounded-full p-3 mr-4">
+                                <i class="fas fa-file-alt text-blue-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-blue-800 mb-2">
+                                    <a href="${content.url}" class="hover:underline">${content.title?no_esc}</a>
+                                </h3>
+                                <p class="text-gray-700 mb-3 line-clamp-2">${(content.description?no_esc)!}</p>
+                                <div class="flex flex-wrap items-center text-sm text-gray-500">
+									<#if (content.attribute.docno)?has_content>
+                                    	<span class="mr-4"><i class="fas fa-file-alt mr-1"></i> ${attribute.docno}</span>
+									</#if>
+                                    <span class="mr-4"><i class="fas fa-calendar-alt mr-1"></i> ${content.publishDate?string("yyyy年M月d日")}</span>
+                                    <#if content.author?has_content><span class="mr-4"><i class="fas fa-building mr-1"></i> ${content.author}</span></#if>
+                                    <span><i class="fas fa-eye mr-1"></i> 阅读量：${content.clicks}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+					</#list>
+                </div>
+
+                <!-- 分页 -->
+				<div class="flex justify-center mt-8">
+					<nav class="inline-flex rounded-md shadow">
+						<#assign url='./?wd='+(word?url)!/>
+                        <#if categoryId?has_content>
+                            <#assign url+='&categoryId='+categoryId?url/>
+                        </#if>
+                        <#if startPublishDate?has_content>
+                            <#assign url+='&startPublishDate='+startPublishDate?url/>
+                        </#if>
+						<#if endPublishDate?has_content>
+                            <#assign url+='&endPublishDate='+endPublishDate?url/>
+                        </#if>
+						<a href="${getPage(url,page.prePage,'pageIndex')}" class="px-3 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">上一页</a>
+						<#assign start=1/>
+						<#if (page.pageIndex-5) gt start>
+						<#assign start=page.pageIndex-4/>
+						</#if>
+						<#assign max=page.totalPage/>
+						<#if 100 lt max>
+						<#assign max=100/>
+						</#if>
+						<#assign end=max/>
+						<#if (page.pageIndex+5) lt end>
+						<#assign end=page.pageIndex+4/>
+						</#if>
+						<#if start gt 1>
+						<a href="${getPage(url,1,'pageIndex')}" class="px-3 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">1</a>
+						<span class="px-3 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">...</span>
+						</#if>
+						<#list start..end as a>
+						<a href="${getPage(url,a,'pageIndex')}" class="px-3 py-2 border border-gray-300 bg-white text-sm font-medium<#if a=page.pageIndex> text-blue-600 hover:bg-blue-50<#else> text-gray-500 hover:bg-gray-50</#if>">${a}</a>
+						</#list>
+						<#if end lt max>
+						<span class="px-3 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">...</span>
+						<a href="${getPage(url,max,'pageIndex')}" class="px-3 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">${max}</a>
+						</#if>
+						<a href="${getPage(url,page.nextPage,'pageIndex')}" class="px-3 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">下一页</a>
+					</nav>
+				</div>
+				<#else>				
+                <#-- 无结果提示 -->
+                <div class="bg-white rounded-lg shadow-md p-12 text-center">
+                    <div class="mx-auto w-24 h-24 bg-gray-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-search text-gray-400 text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-medium text-gray-700 mb-2">没有找到相关结果</h3>
+                    <p class="text-gray-500 mb-6">请尝试更换关键词或调整筛选条件</p>
+                    <button class="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700">
+                        <i class="fas fa-redo mr-2"></i>重新搜索
+                    </button>
+                </div>
+				</#if>
+            </div>
+			</@cms.facetSearch>
+        </div>
+    </main>
+
+	<script>
+		var templatePath='${.current_template_name?keep_after('/')}';
+	</script>
+    <@tools.includePlace path="/common/e193da98-10e6-4bf5-8294-e3f009a5c9bd.html"/> <#-- footer -->
+
+    <script>
+	    var form = document.querySelector("form[name=searchForm]");
+		var dateInputs = form.querySelectorAll("input[type=date]");
+		var times = form.querySelectorAll("input[name=time]");
+		dateInputs.forEach(ele => {
+			ele.addEventListener("change", event =>{
+				times.forEach(ele => {
+					ele.checked=false;
+				});
+			});
+		});
+		times.forEach(ele => {
+			ele.addEventListener("click", event =>{
+				dateInputs.forEach(ele => {
+					ele.value="";
+				});
+			});
+		});
+        function search(name,value){            
+            var input = form.querySelector("input[name="+name+"]");
+			if(input){
+            	input.value=value;
+			}
+            form.submit();
+            return false;
+        }
+    </script>
+</body>
+</html>

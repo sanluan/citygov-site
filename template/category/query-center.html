@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="UTF-8">
+    <title>${(attribute.title)?has_content?then(attribute.title,category.name)} - ${site.name}</title>
+	<meta name="keywords" content="${(attribute.keywords)!}"/>
+	<meta name="description" content="${(attribute.description)!}"/>
+	<@tools.includePlace path="/common/5263183d-e47a-43e8-b159-bde076425459.html"/> <#-- head -->
+</head>
+<body class="font-sans bg-gray-50">
+    <@tools.includePlace path="/common/e01f6695-8132-4bef-97b6-d6505e6f8785.html"/> <#-- nav -->
+
+    <!-- 页面内容 -->
+    <main class="container mx-auto px-4 py-4">
+		<@include path="/fragment/bread.html"/><#-- 面包屑导航 -->
+		
+        <!-- 选项卡导航 -->
+        <div class="flex border-b border-gray-200 mb-8">
+            <a class="tab-button px-6 py-3 text-gray-600 hover:text-blue-600" href="guide.html">
+                <i class="fas fa-list-alt mr-2"></i>办事指南
+            </a>
+            <a class="tab-button px-6 py-3 text-gray-600 hover:text-blue-600"  href="form-download.html">
+                <i class="fas fa-file-download mr-2"></i>表格下载
+            </a>
+            <a class="tab-button px-6 py-3 text-gray-600 hover:text-blue-600" href="application.html">
+                <i class="fas fa-file-upload mr-2"></i>在线申报
+            </a>
+            <a class="tab-button px-6 py-3 text-gray-600 hover:text-blue-600 active" href="query-center.html">
+                <i class="fas fa-search mr-2"></i>查询中心
+            </a>
+        </div>
+
+        <!-- 查询中心页面 -->
+        <div class="bg-white rounded-lg shadow-sm p-6 mb-8">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">办事进度查询</h2>
+
+            <div class="bg-blue-50 rounded-lg p-6 mb-6">
+                <h3 class="text-lg font-bold text-blue-800 mb-4">查询方式</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="bg-white rounded-lg p-4 border border-blue-100">
+                        <div class="flex items-center mb-3">
+                            <div class="bg-blue-100 p-2 rounded-full mr-3">
+                                <i class="fas fa-search text-blue-600"></i>
+                            </div>
+                            <h4 class="font-bold text-gray-800">申报编号查询</h4>
+                        </div>
+                        <p class="text-gray-600 text-sm">输入申报时获得的申报编号和验证码查询</p>
+                    </div>
+
+                    <div class="bg-white rounded-lg p-4 border border-blue-100">
+                        <div class="flex items-center mb-3">
+                            <div class="bg-green-100 p-2 rounded-full mr-3">
+                                <i class="fas fa-id-card text-green-600"></i>
+                            </div>
+                            <h4 class="font-bold text-gray-800">身份证号查询</h4>
+                        </div>
+                        <p class="text-gray-600 text-sm">输入身份证号和手机号查询个人相关申报</p>
+                    </div>
+
+                    <div class="bg-white rounded-lg p-4 border border-blue-100">
+                        <div class="flex items-center mb-3">
+                            <div class="bg-purple-100 p-2 rounded-full mr-3">
+                                <i class="fas fa-qrcode text-purple-600"></i>
+                            </div>
+                            <h4 class="font-bold text-gray-800">扫码查询</h4>
+                        </div>
+                        <p class="text-gray-600 text-sm">使用"新星政务"APP扫描申报回执上的二维码</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg border border-gray-200 p-6">
+                <h3 class="text-lg font-bold text-gray-800 mb-4">申报编号查询</h3>
+                <form id="query-form" class="space-y-4">
+                    <div>
+                        <label for="application-number" class="block text-sm font-medium text-gray-700 mb-1">申报编号</label>
+                        <input type="text" id="application-number" name="application-number"
+                               class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                               placeholder="请输入申报编号" required>
+                    </div>
+
+                    <div>
+                        <label for="verification-code" class="block text-sm font-medium text-gray-700 mb-1">验证码</label>
+                        <div class="flex">
+                            <input type="text" id="verification-code" name="verification-code"
+                                   class="flex-grow px-4 py-2 border border-gray-300 rounded-l-md focus:ring-blue-500 focus:border-blue-500"
+                                   placeholder="请输入验证码" required>
+                            <div class="bg-gray-100 border border-l-0 border-gray-300 rounded-r-md px-4 flex items-center justify-center">
+                                <span class="text-blue-600 font-mono text-lg">A7B9</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-2">
+                        <button type="submit" class="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition-colors">
+                            <i class="fas fa-search mr-2"></i> 查询
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- 查询结果示例 (默认隐藏) -->
+        <div id="query-result" class="bg-white rounded-lg shadow-sm p-6 hidden">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-bold text-gray-800">查询结果</h2>
+                <button onclick="resetQuery()" class="text-blue-600 hover:text-blue-800 text-sm">
+                    <i class="fas fa-redo mr-1"></i> 重新查询
+                </button>
+            </div>
+
+            <div class="border-b border-gray-200 pb-4 mb-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                    <div>
+                        <p class="text-sm text-gray-500">申报编号</p>
+                        <p class="font-medium">XS2023111500123</p>
+                    </div>
+                    <div>
+                        <p class="text-sm text-gray-500">申报事项</p>
+                        <p class="font-medium">居民身份证补办</p>
+                    </div>
+                    <div>
+                        <p class="text-sm text-gray-500">申报时间</p>
+                        <p class="font-medium">2023-11-15 09:23:45</p>
+                    </div>
+                    <div>
+                        <p class="text-sm text-gray-500">当前状态</p>
+                        <p class="font-medium text-green-600">审核通过</p>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="text-lg font-bold text-gray-800 mb-4">办理进度</h3>
+            <div class="space-y-6">
+                <div class="result-item border-b border-gray-100 pb-4">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h4 class="font-bold text-gray-800">审核通过</h4>
+                            <p class="text-sm text-gray-600 mt-1">您的申请已审核通过，请按通知时间到指定地点领取身份证</p>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-sm text-gray-500">2023-11-15 15:30:12</p>
+                            <span class="inline-block mt-1 px-2 py-1 bg-green-100 text-green-800 text-xs rounded-full">已完成</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="result-item border-b border-gray-100 pb-4">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h4 class="font-bold text-gray-800">材料审核</h4>
+                            <p class="text-sm text-gray-600 mt-1">工作人员正在审核您提交的材料</p>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-sm text-gray-500">2023-11-15 11:45:23</p>
+                            <span class="inline-block mt-1 px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded-full">处理中</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="result-item">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h4 class="font-bold text-gray-800">申报提交</h4>
+                            <p class="text-sm text-gray-600 mt-1">您已成功提交申报，申报编号：XS2023111500123</p>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-sm text-gray-500">2023-11-15 09:23:45</p>
+                            <span class="inline-block mt-1 px-2 py-1 bg-gray-100 text-gray-800 text-xs rounded-full">已提交</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-8 bg-blue-50 rounded-lg p-4">
+                <h4 class="font-bold text-blue-800 mb-2">下一步操作</h4>
+                <p class="text-sm text-gray-700 mb-3">请于2023年11月20日前，携带本人户口本原件到新星市公安局户籍大厅领取身份证。</p>
+                <p class="text-sm text-gray-700">领取时间：工作日9:00-17:00</p>
+                <p class="text-sm text-gray-700">地址：新星市光明路88号</p>
+                <p class="text-sm text-gray-700">咨询电话：12345</p>
+            </div>
+        </div>
+
+        <!-- 其他查询服务 -->
+        <div class="bg-white rounded-lg shadow-sm p-6">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">其他查询服务</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="search-card bg-white border border-gray-200 rounded-lg p-6 transition-all duration-200 hover:shadow-md cursor-pointer" onclick="showQueryModal('certificate')">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-blue-100 p-3 rounded-full mr-4">
+                            <i class="fas fa-id-card text-blue-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-800">证件办理查询</h3>
+                    </div>
+                    <p class="text-gray-600 text-sm">身份证、护照、驾驶证等证件办理进度查询</p>
+                </div>
+
+                <div class="search-card bg-white border border-gray-200 rounded-lg p-6 transition-all duration-200 hover:shadow-md cursor-pointer" onclick="showQueryModal('social')">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-green-100 p-3 rounded-full mr-4">
+                            <i class="fas fa-shield-alt text-green-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-800">社保公积金查询</h3>
+                    </div>
+                    <p class="text-gray-600 text-sm">社会保险、住房公积金缴纳及使用情况查询</p>
+                </div>
+
+                <div class="search-card bg-white border border-gray-200 rounded-lg p-6 transition-all duration-200 hover:shadow-md cursor-pointer" onclick="showQueryModal('business')">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-purple-100 p-3 rounded-full mr-4">
+                            <i class="fas fa-building text-purple-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-800">企业登记查询</h3>
+                    </div>
+                    <p class="text-gray-600 text-sm">工商注册、税务登记等企业事务办理进度查询</p>
+                </div>
+
+                <div class="search-card bg-white border border-gray-200 rounded-lg p-6 transition-all duration-200 hover:shadow-md cursor-pointer" onclick="showQueryModal('complaint')">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-yellow-100 p-3 rounded-full mr-4">
+                            <i class="fas fa-comment-dots text-yellow-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-800">投诉建议查询</h3>
+                    </div>
+                    <p class="text-gray-600 text-sm">12345热线、市长信箱等投诉建议处理进度查询</p>
+                </div>
+
+                <div class="search-card bg-white border border-gray-200 rounded-lg p-6 transition-all duration-200 hover:shadow-md cursor-pointer" onclick="showQueryModal('real-estate')">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-red-100 p-3 rounded-full mr-4">
+                            <i class="fas fa-home text-red-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-800">不动产登记查询</h3>
+                    </div>
+                    <p class="text-gray-600 text-sm">房产登记、过户等不动产事务办理进度查询</p>
+                </div>
+
+                <div class="search-card bg-white border border-gray-200 rounded-lg p-6 transition-all duration-200 hover:shadow-md cursor-pointer" onclick="showQueryModal('other')">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-indigo-100 p-3 rounded-full mr-4">
+                            <i class="fas fa-ellipsis-h text-indigo-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-800">其他事项查询</h3>
+                    </div>
+                    <p class="text-gray-600 text-sm">其他政务服务事项办理进度查询</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 查询服务模态框 -->
+    <div id="query-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-lg shadow-xl w-full max-w-md mx-4">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 id="modal-title" class="text-xl font-bold text-gray-800">证件办理查询</h3>
+                    <button onclick="hideQueryModal()" class="text-gray-400 hover:text-gray-500">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+
+                <form id="modal-query-form" class="space-y-4">
+                    <div>
+                        <label for="query-type" class="block text-sm font-medium text-gray-700 mb-1">查询类型</label>
+                        <select id="query-type" name="query-type" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500">
+                            <option value="id-card">居民身份证</option>
+                            <option value="passport">护照</option>
+                            <option value="driver-license">驾驶证</option>
+                            <option value="other">其他证件</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="id-number" class="block text-sm font-medium text-gray-700 mb-1">身份证号</label>
+                        <input type="text" id="id-number" name="id-number"
+                               class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                               placeholder="请输入身份证号" required>
+                    </div>
+
+                    <div>
+                        <label for="phone-number" class="block text-sm font-medium text-gray-700 mb-1">手机号码</label>
+                        <input type="tel" id="phone-number" name="phone-number"
+                               class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                               placeholder="请输入手机号" required>
+                    </div>
+
+                    <div>
+                        <label for="modal-verification-code" class="block text-sm font-medium text-gray-700 mb-1">验证码</label>
+                        <div class="flex">
+                            <input type="text" id="modal-verification-code" name="modal-verification-code"
+                                   class="flex-grow px-4 py-2 border border-gray-300 rounded-l-md focus:ring-blue-500 focus:border-blue-500"
+                                   placeholder="请输入验证码" required>
+                            <button type="button" class="bg-gray-100 border border-l-0 border-gray-300 rounded-r-md px-4 text-sm text-blue-600 whitespace-nowrap">
+                                获取验证码
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="pt-2">
+                        <button type="submit" class="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition-colors">
+                            <i class="fas fa-search mr-2"></i> 查询
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+	<script>
+		var templatePath='${.current_template_name?keep_after('/')}';
+		var itemString="itemType=category&itemId=${category.id}";
+	</script>
+    <@tools.includePlace path="/common/e193da98-10e6-4bf5-8294-e3f009a5c9bd.html"/> <#-- footer -->
+
+    <script>
+        // 移动端菜单切换
+        document.getElementById('mobile-menu-button')?.addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // 返回顶部按钮
+        const backToTopBtn = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopBtn.classList.remove('hidden');
+            } else {
+                backToTopBtn.classList.add('hidden');
+            }
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+
+
+        // 显示查询模态框
+        function showQueryModal(type) {
+            const modal = document.getElementById('query-modal');
+            const title = document.getElementById('modal-title');
+
+            switch(type) {
+                case 'certificate':
+                    title.textContent = '证件办理查询';
+                    break;
+                case 'social':
+                    title.textContent = '社保公积金查询';
+                    break;
+                case 'business':
+                    title.textContent = '企业登记查询';
+                    break;
+                case 'complaint':
+                    title.textContent = '投诉建议查询';
+                    break;
+                case 'real-estate':
+                    title.textContent = '不动产登记查询';
+                    break;
+                default:
+                    title.textContent = '其他事项查询';
+            }
+
+            modal.classList.remove('hidden');
+        }
+
+        // 隐藏查询模态框
+        function hideQueryModal() {
+            document.getElementById('query-modal').classList.add('hidden');
+        }
+
+        // 表单提交处理
+        document.getElementById('query-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            document.getElementById('query-result').classList.remove('hidden');
+            window.scrollTo({
+                top: document.getElementById('query-result').offsetTop - 20,
+                behavior: 'smooth'
+            });
+        });
+
+        // 重置查询
+        function resetQuery() {
+            document.getElementById('query-form').reset();
+            document.getElementById('query-result').classList.add('hidden');
+        }
+
+        // 模态框表单提交处理
+        document.getElementById('modal-query-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            hideQueryModal();
+            alert('查询请求已提交，结果将通过短信发送到您的手机');
+        });
+    </script>
+</body>
+</html>

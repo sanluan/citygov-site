@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="UTF-8">
+    <title>${content.title} - ${category.name} - ${site.name}</title>
+	<meta name="keywords" content="<#list getKeywords(content.title) as a>${a}<#sep>,</#list>"/>
+    <meta name="description" content="${content.description!}"/>
+    <script src="${site.sitePath}assets/js/tailwindcss.js"></script>
+    <link href="${site.sitePath}assets/font-awesome/css/all.min.css" rel="stylesheet">
+    <link href="${site.sitePath}assets/css/style.css" rel="stylesheet">
+</head>
+<body class="font-sans bg-gray-50">
+    
+    <@tools.includePlace path="/common/e01f6695-8132-4bef-97b6-d6505e6f8785.html"/> <#-- nav -->
+
+	<!-- 新闻详情页内容 -->
+	<main class="container mx-auto px-4 py-8">
+		<@include path="/fragment/bread.html"/><#-- 面包屑导航 -->
+
+		<div class="bg-white rounded-lg shadow-md overflow-hidden">
+			<!-- 新闻标题 -->
+			<div class="border-b border-gray-200 px-6 py-4">
+				<h1 class="text-2xl md:text-3xl font-bold text-gray-800 mb-6">${content.title}</h1>
+				<div class="flex flex-wrap items-center text-sm text-gray-600">
+					<#if attribute.docno?has_content><span class="mr-4"><i class="fas fa-file-alt mr-1"></i> ${attribute.docno}</span></#if>
+					<span class="mr-4"><i class="fas fa-calendar-alt mr-1"></i> ${content.publishDate?date}</span>
+					<#if content.author?has_content><span class="mr-4"><i class="fas fa-building mr-1"></i> ${content.author}</span></#if>
+					<span><i class="fas fa-eye mr-1"></i> 阅读量：<span id="clicks">...</span></span>
+				</div>
+			</div>
+
+			<!-- 新闻内容 -->
+			<div class="px-6 py-8">
+				<#if content.hasImages>
+				<@cms.contentFileList contentId=content.id fileTypes='image'>
+				<#list page.list as file>
+				<div class="mb-8">
+					<img src="${(file.filePath)!}" alt="${(file.description)!}" class="w-full rounded-lg shadow-md">
+					<p class="text-center text-gray-500 text-sm mt-2">${(file.description)!}</p>
+				</div>
+				</#list>
+				</@cms.contentFileList>
+				</#if>
+
+				<div class="prose max-w-none">
+					${(text?no_esc)!}
+				</div>
+				<@import path="/fragment/tools.ftl" namespace="t"/><#-- 工具 -->
+				<#if content.hasFiles>                        
+				<@cms.contentFileList contentId=content.id fileTypes='document,video,audio,other'>
+				<#if page.totalCount gt 0>
+				<!-- 相关附件 -->
+				<div class="mt-8 border-t pt-6">
+					<h3 class="text-lg font-medium mb-4"><i class="fas fa-paperclip mr-2"></i>相关附件</h3>
+
+					<div class="space-y-2">
+						<#list page.list as file>
+						<a href="${(file.filePath)!}" download="${(file.description)!}" class="attachment-item flex items-center p-3 border border-gray-200 rounded-md hover:border-blue-300 transition-colors">
+							<i class="fas fa-file-word text-blue-600 text-xl mr-3"></i>
+							<div>
+								<p class="font-medium">${(file.description)!}</p>
+								<p class="text-sm text-gray-500">文件大小：<@t.fileSize file.fileSize/></p>
+							</div>
+							<div class="ml-auto">
+								<button class="text-blue-600 hover:text-blue-800 px-3 py-1 rounded-md bg-blue-50 hover:bg-blue-100">
+									<i class="fas fa-download mr-1"></i>下载
+								</button>
+							</div>
+						</a>
+						</#list>
+					</div>
+				</div>
+				</#if>
+				</@cms.contentFileList>
+				</#if>
+
+				<div class="flex items-center justify-between mt-12 pt-6 border-t border-gray-200">
+					<div>
+						<@cms.contentList categoryId=content.categoryId endPublishDate=content.publishDate orderField='publishDate' pageIndex=2 pageSize=1>
+						<#if 2=page.pageIndex>
+						<#list page.list as content>
+						<p class="text-sm text-gray-500">上一篇：</p>
+						<a href="${content.url!}" class="text-blue-600 hover:text-blue-800">${content.title}</a>
+						</#list>
+						</#if>
+						</@cms.contentList>
+					</div>
+					<div class="text-right">
+						<@cms.contentList categoryId=content.categoryId startPublishDate=content.publishDate orderField='publishDate' orderType='asc' pageIndex=1 pageSize=1>
+						<#list page.list as a>
+						<p class="text-sm text-gray-500">下一篇：</p>
+						<a href="${content.url!}" class="text-blue-600 hover:text-blue-800">${content.title}</a>
+						</#list>
+						</@cms.contentList>
+					</div>
+				</div>
+
+				<!-- 相关文件 -->
+				<div class="mt-8 border-t pt-6">
+					<h3 class="text-lg font-medium mb-4"><i class="fas fa-link mr-2"></i>相关文章</h3>
+					<@cms.contentRelatedList contentId=content.id pageSize=10>
+					<ul class="space-y-2">
+						<#list page.list as content>
+						<li><a href="${content.url!}" class="text-blue-600 hover:underline">• ${content.title}</a></li>
+						</#list>
+						<#if content.tagIds?has_content>
+						<@cms.search tagId=content.tagIds pageSize=10>
+						<#list page.list as a>
+						<#if content.id!=a.id>
+						<li><a href="<#if a.onlyUrl>${site.dynamicPath}content/redirect?id=${a.id}<#else>${a.url}</#if>" class="text-blue-600 hover:underline">• ${a.title}</a></li>
+						</#if>
+						</#list>
+						</@cms.search>
+						<#else>
+						<@cms.contentList categoryId=content.categoryId endPublishDate=content.publishDate pageSize=10>
+						<#list page.list as a>
+						<#if !a?is_first>
+						<li><a href="<#if a.onlyUrl>${site.dynamicPath}content/redirect?id=${a.id}<#else>${a.url}</#if>" class="text-blue-600 hover:underline">• ${a.title}</a></li>
+						</#if>
+						</#list>
+						</@cms.contentList>
+						</#if>
+					</ul>
+					</@cms.contentRelatedList>
+				</div>
+
+			</div>
+		</div>
+	</main>
+	<script>
+		var templatePath='${.current_template_name?keep_after('/')}';
+		var itemString="itemType=content&itemId=${content.id}";
+	</script>
+    <@tools.includePlace path="/common/e193da98-10e6-4bf5-8294-e3f009a5c9bd.html"/> <#-- footer -->
+	<script src="${site.dynamicPath!}resource/plugins/ueditor/ueditor.parse.min.js"></script>
+    <script>
+		fetch('${site.dynamicPath}api/contentClick?id=${content.id}')
+		.then(response => {
+			if (response.ok) {
+				return response.json();
+			}
+		})
+		.then(data => {
+			if(data.clicks > 100000){
+               document.getElementById('clicks').textContent="10万+";
+			} else if(data.clicks <10000){
+                document.getElementById('clicks').textContent=data.clicks;
+			} else {
+				 document.getElementById('clicks').textContent=((data.clicks/10000)|0)+"万+";
+            }
+		})
+		.catch(error => {
+			console.error('error', error);
+		});
+        uParse('#content',{rootPath: '${site.dynamicPath!}resource/plugins/ueditor/'});
+    </script>
+</body>
+</html>

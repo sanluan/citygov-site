@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="UTF-8">
+    <title>${(attribute.title)?has_content?then(attribute.title,category.name)} - ${site.name}</title>
+	<meta name="keywords" content="${(attribute.keywords)!}"/>
+	<meta name="description" content="${(attribute.description)!}"/>
+	<@tools.includePlace path="/common/5263183d-e47a-43e8-b159-bde076425459.html"/> <#-- head -->
+</head>
+<body class="font-sans bg-gray-50">
+    <@tools.includePlace path="/common/e01f6695-8132-4bef-97b6-d6505e6f8785.html"/> <#-- nav -->
+
+    <!-- 在线申报页面 -->
+    <main class="container mx-auto px-4 py-4">
+		<@include path="/fragment/bread.html"/><#-- 面包屑导航 -->
+		
+        <!-- 选项卡导航 -->
+        <div class="flex border-b border-gray-200 mb-8">
+            <a class="tab-button px-6 py-3 text-gray-600 hover:text-blue-600 active" href="guide.html">
+                <i class="fas fa-list-alt mr-2"></i>办事指南
+            </a>
+            <a class="tab-button px-6 py-3 text-gray-600 hover:text-blue-600"  href="form-download.html">
+                <i class="fas fa-file-download mr-2"></i>表格下载
+            </a>
+            <a class="tab-button px-6 py-3 text-gray-600 hover:text-blue-600 active" href="application.html">
+                <i class="fas fa-file-upload mr-2"></i>在线申报
+            </a>
+            <a class="tab-button px-6 py-3 text-gray-600 hover:text-blue-600" href="query-center.html">
+                <i class="fas fa-search mr-2"></i>查询中心
+            </a>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-sm p-6 mb-8">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">在线申报服务</h2>
+            <p class="text-gray-600 mb-6">您可以通过本平台在线申报各类政务服务事项，实现"零跑腿"办理。请选择您需要申报的事项类型：</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- 个人事项 -->
+                <div class="search-card bg-white border border-gray-200 rounded-lg p-6 transition-all duration-200 cursor-pointer" onclick="startApplication('personal')">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-blue-100 p-3 rounded-full mr-4">
+                            <i class="fas fa-user text-blue-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-800">个人事项申报</h3>
+                    </div>
+                    <p class="text-gray-600 text-sm">户籍、身份证、社保、公积金等个人事务在线申报</p>
+                    <div class="mt-4 flex justify-between items-center">
+                        <span class="text-sm text-gray-500"><i class="fas fa-clock mr-1"></i>平均办理时间: 3个工作日</span>
+                        <span class="text-blue-600 text-sm font-medium">立即申报 <i class="fas fa-arrow-right ml-1"></i></span>
+                    </div>
+                </div>
+
+                <!-- 企业事项 -->
+                <div class="search-card bg-white border border-gray-200 rounded-lg p-6 transition-all duration-200 cursor-pointer" onclick="startApplication('business')">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-green-100 p-3 rounded-full mr-4">
+                            <i class="fas fa-building text-green-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-800">企业事项申报</h3>
+                    </div>
+                    <p class="text-gray-600 text-sm">工商注册、税务登记、资质认证等企业事务在线申报</p>
+                    <div class="mt-4 flex justify-between items-center">
+                        <span class="text-sm text-gray-500"><i class="fas fa-clock mr-1"></i>平均办理时间: 5个工作日</span>
+                        <span class="text-blue-600 text-sm font-medium">立即申报 <i class="fas fa-arrow-right ml-1"></i></span>
+                    </div>
+                </div>
+
+                <!-- 便民服务 -->
+                <div class="search-card bg-white border border-gray-200 rounded-lg p-6 transition-all duration-200 cursor-pointer" onclick="startApplication('convenience')">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-purple-100 p-3 rounded-full mr-4">
+                            <i class="fas fa-hands-helping text-purple-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-800">便民服务申报</h3>
+                    </div>
+                    <p class="text-gray-600 text-sm">公共设施报修、投诉建议、生活缴费等便民服务</p>
+                    <div class="mt-4 flex justify-between items-center">
+                        <span class="text-sm text-gray-500"><i class="fas fa-clock mr-1"></i>平均办理时间: 2个工作日</span>
+                        <span class="text-blue-600 text-sm font-medium">立即申报 <i class="fas fa-arrow-right ml-1"></i></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 申报流程说明 -->
+        <div class="bg-white rounded-lg shadow-sm p-6 mb-8">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">申报流程说明</h2>
+
+            <div class="space-y-8">
+                <div class="form-step active">
+                    <div class="form-step-number">1</div>
+                    <div class="pl-6">
+                        <h3 class="text-lg font-bold text-gray-800 mb-2">选择申报事项</h3>
+                        <p class="text-gray-600">在申报服务列表中选择您需要办理的事项，点击"立即申报"按钮</p>
+                    </div>
+                </div>
+
+                <div class="form-step">
+                    <div class="form-step-number">2</div>
+                    <div class="pl-6">
+                        <h3 class="text-lg font-bold text-gray-800 mb-2">填写申报信息</h3>
+                        <p class="text-gray-600">按照页面提示填写相关信息，上传必要的证明材料</p>
+                    </div>
+                </div>
+
+                <div class="form-step">
+                    <div class="form-step-number">3</div>
+                    <div class="pl-6">
+                        <h3 class="text-lg font-bold text-gray-800 mb-2">提交申报</h3>
+                        <p class="text-gray-600">确认信息无误后提交申报，系统将生成申报编号</p>
+                    </div>
+                </div>
+
+                <div class="form-step">
+                    <div class="form-step-number">4</div>
+                    <div class="pl-6">
+                        <h3 class="text-lg font-bold text-gray-800 mb-2">等待审核</h3>
+                        <p class="text-gray-600">相关部门将在承诺时限内完成审核，您会收到短信通知</p>
+                    </div>
+                </div>
+
+                <div class="form-step">
+                    <div class="form-step-number">5</div>
+                    <div class="pl-6">
+                        <h3 class="text-lg font-bold text-gray-800 mb-2">获取结果</h3>
+                        <p class="text-gray-600">审核通过后，您可以在线查看办理结果或按要求领取证件</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 常见问题 -->
+        <div class="bg-white rounded-lg shadow-sm p-6">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">常见问题</h2>
+
+            <div class="space-y-4">
+                <div class="border-b border-gray-200 pb-4">
+                    <h3 class="text-lg font-bold text-gray-800 mb-2">1. 在线申报需要注册账号吗？</h3>
+                    <p class="text-gray-600">是的，您需要使用新星市统一身份认证平台账号登录后才能进行在线申报。如果您还没有账号，可以点击<a href="#" class="text-blue-600 hover:underline">这里</a>注册。</p>
+                </div>
+
+                <div class="border-b border-gray-200 pb-4">
+                    <h3 class="text-lg font-bold text-gray-800 mb-2">2. 申报后如何查询办理进度？</h3>
+                    <p class="text-gray-600">您可以在"查询中心"页面输入申报编号查询办理进度，也可以通过"新星政务"APP或微信公众号查询。</p>
+                </div>
+
+                <div class="border-b border-gray-200 pb-4">
+                    <h3 class="text-lg font-bold text-gray-800 mb-2">3. 申报材料有什么要求？</h3>
+                    <p class="text-gray-600">上传的材料应为清晰的彩色扫描件或照片，格式为JPG、PNG或PDF，单个文件大小不超过5MB。具体要求请查看各项申报的"材料清单"。</p>
+                </div>
+
+                <div class="">
+                    <h3 class="text-lg font-bold text-gray-800 mb-2">4. 申报过程中遇到问题怎么办？</h3>
+                    <p class="text-gray-600">您可以拨打12345政务服务热线咨询，或通过"在线客服"功能获取帮助。服务时间为工作日9:00-17:00。</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+	<script>
+		var templatePath='${.current_template_name?keep_after('/')}';
+		var itemString="itemType=category&itemId=${category.id}";
+	</script>
+    <@tools.includePlace path="/common/e193da98-10e6-4bf5-8294-e3f009a5c9bd.html"/> <#-- footer -->
+
+    <script>
+        // 开始申报
+        function startApplication(type) {
+            alert(`即将开始${type === 'personal' ? '个人' : type === 'business' ? '企业' : '便民服务'}事项申报\n在实际应用中，这里会跳转到相应的申报页面`);
+        }
+    </script>
+</body>
+</html>

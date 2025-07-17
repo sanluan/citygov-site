@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="UTF-8">
+    <title>${(attribute.title)?has_content?then(attribute.title,category.name)} - ${site.name}</title>
+	<meta name="keywords" content="${(attribute.keywords)!}"/>
+	<meta name="description" content="${(attribute.description)!}"/>
+	<@tools.includePlace path="/common/5263183d-e47a-43e8-b159-bde076425459.html"/> <#-- head -->
+</head>
+<body class="font-sans bg-gray-50">
+    <@tools.includePlace path="/common/e01f6695-8132-4bef-97b6-d6505e6f8785.html"/> <#-- nav -->
+
+    <!-- 走进新星页面内容 -->
+    <main class="container mx-auto px-4 py-4">
+		<@include path="/fragment/bread.html"/><#-- 面包屑导航 -->
+		
+        <!-- 城市概况 -->
+        <section class="mb-4">
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <div class="bg-blue-800 text-white px-6 py-4">
+                    <h2 class="text-2xl font-bold">城市概况</h2>
+                </div>
+                <div class="p-6">
+                    <div class="flex flex-col md:flex-row gap-6">
+                        <div class="md:w-1/2">
+                            <img src="https://via.placeholder.com/600x400" alt="新星市全景" class="w-full rounded-lg shadow-md">
+                        </div>
+                        <div class="md:w-1/2">
+                            <h3 class="text-xl font-bold text-gray-800 mb-4">新星市简介</h3>
+                            <p class="text-gray-700 mb-4">新星市位于中国东部沿海地区，是区域经济、文化、交通中心。全市总面积12,345平方公里，常住人口约850万，下辖8个区、3个县。</p>
+                            <p class="text-gray-700 mb-4">新星市历史悠久，文化底蕴深厚，建城已有2000多年历史。近年来，新星市坚持创新驱动发展战略，经济保持快速增长，2022年地区生产总值达到1.2万亿元。</p>
+                            <div class="grid grid-cols-2 gap-4 mt-6">
+                                <div class="bg-blue-50 p-4 rounded-lg">
+                                    <div class="text-blue-600 text-2xl font-bold mb-1">1.2万亿</div>
+                                    <div class="text-gray-600 text-sm">2022年GDP</div>
+                                </div>
+                                <div class="bg-green-50 p-4 rounded-lg">
+                                    <div class="text-green-600 text-2xl font-bold mb-1">850万</div>
+                                    <div class="text-gray-600 text-sm">常住人口</div>
+                                </div>
+                                <div class="bg-purple-50 p-4 rounded-lg">
+                                    <div class="text-purple-600 text-2xl font-bold mb-1">12,345</div>
+                                    <div class="text-gray-600 text-sm">总面积(km²)</div>
+                                </div>
+                                <div class="bg-yellow-50 p-4 rounded-lg">
+                                    <div class="text-yellow-600 text-2xl font-bold mb-1">11</div>
+                                    <div class="text-gray-600 text-sm">区县数量</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 行政区划 -->
+        <section class="mb-4">
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <div class="bg-blue-800 text-white px-6 py-4">
+                    <h2 class="text-2xl font-bold">行政区划</h2>
+                </div>
+                <div class="p-6">
+                    <div class="flex overflow-x-auto pb-4 mb-6">
+                        <button class="city-tab active px-6 py-2 rounded-t-lg mr-2" data-tab="all">全部</button>
+                        <button class="city-tab px-6 py-2 rounded-t-lg mr-2" data-tab="central">中心城区</button>
+                        <button class="city-tab px-6 py-2 rounded-t-lg mr-2" data-tab="suburban">近郊区</button>
+                        <button class="city-tab px-6 py-2 rounded-t-lg" data-tab="county">远郊县</button>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- 行政区划卡片 -->
+                        <div class="district-card bg-white rounded-lg shadow-md overflow-hidden border border-gray-200" data-region="central">
+                            <img src="https://via.placeholder.com/400x250" alt="光明区" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <h3 class="text-lg font-bold text-gray-800 mb-2">光明区</h3>
+                                <p class="text-gray-600 text-sm mb-3">市政府所在地，政治、文化、金融中心</p>
+                                <div class="flex justify-between text-sm text-gray-500">
+                                    <span><i class="fas fa-users mr-1"></i> 120万人口</span>
+                                    <span><i class="fas fa-map-marked-alt mr-1"></i> 85km²</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="district-card bg-white rounded-lg shadow-md overflow-hidden border border-gray-200" data-region="central">
+                            <img src="https://via.placeholder.com/400x250" alt="滨江区" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <h3 class="text-lg font-bold text-gray-800 mb-2">滨江区</h3>
+                                <p class="text-gray-600 text-sm mb-3">高新技术产业聚集地，创新创业高地</p>
+                                <div class="flex justify-between text-sm text-gray-500">
+                                    <span><i class="fas fa-users mr-1"></i> 90万人口</span>
+                                    <span><i class="fas fa-map-marked-alt mr-1"></i> 120km²</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="district-card bg-white rounded-lg shadow-md overflow-hidden border border-gray-200" data-region="suburban">
+                            <img src="https://via.placeholder.com/400x250" alt="新港区" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <h3 class="text-lg font-bold text-gray-800 mb-2">新港区</h3>
+                                <p class="text-gray-600 text-sm mb-3">港口物流中心，对外贸易重要门户</p>
+                                <div class="flex justify-between text-sm text-gray-500">
+                                    <span><i class="fas fa-users mr-1"></i> 80万人口</span>
+                                    <span><i class="fas fa-map-marked-alt mr-1"></i> 200km²</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="district-card bg-white rounded-lg shadow-md overflow-hidden border border-gray-200" data-region="suburban">
+                            <img src="https://via.placeholder.com/400x250" alt="绿园区" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <h3 class="text-lg font-bold text-gray-800 mb-2">绿园区</h3>
+                                <p class="text-gray-600 text-sm mb-3">生态宜居示范区，休闲旅游胜地</p>
+                                <div class="flex justify-between text-sm text-gray-500">
+                                    <span><i class="fas fa-users mr-1"></i> 60万人口</span>
+                                    <span><i class="fas fa-map-marked-alt mr-1"></i> 300km²</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="district-card bg-white rounded-lg shadow-md overflow-hidden border border-gray-200" data-region="county">
+                            <img src="https://via.placeholder.com/400x250" alt="青山县" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <h3 class="text-lg font-bold text-gray-800 mb-2">青山县</h3>
+                                <p class="text-gray-600 text-sm mb-3">农业大县，绿色农产品生产基地</p>
+                                <div class="flex justify-between text-sm text-gray-500">
+                                    <span><i class="fas fa-users mr-1"></i> 50万人口</span>
+                                    <span><i class="fas fa-map-marked-alt mr-1"></i> 1,200km²</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="district-card bg-white rounded-lg shadow-md overflow-hidden border border-gray-200" data-region="county">
+                            <img src="https://via.placeholder.com/400x250" alt="蓝海县" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <h3 class="text-lg font-bold text-gray-800 mb-2">蓝海县</h3>
+                                <p class="text-gray-600 text-sm mb-3">海洋经济示范区，渔业和旅游业发达</p>
+                                <div class="flex justify-between text-sm text-gray-500">
+                                    <span><i class="fas fa-users mr-1"></i> 45万人口</span>
+                                    <span><i class="fas fa-map-marked-alt mr-1"></i> 1,500km²</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 城市名片 -->
+        <section class="mb-4">
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <div class="bg-blue-800 text-white px-6 py-4">
+                    <h2 class="text-2xl font-bold">城市名片</h2>
+                </div>
+                <div class="p-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6 text-center hover:shadow-md transition-shadow duration-300">
+                            <div class="bg-blue-100 w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4">
+                                <i class="fas fa-trophy text-blue-600 text-2xl"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-gray-800 mb-2">全国文明城市</h3>
+                            <p class="text-gray-600 text-sm">连续五届获得"全国文明城市"称号</p>
+                        </div>
+
+                        <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6 text-center hover:shadow-md transition-shadow duration-300">
+                            <div class="bg-green-100 w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4">
+                                <i class="fas fa-leaf text-green-600 text-2xl"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-gray-800 mb-2">国家森林城市</h3>
+                            <p class="text-gray-600 text-sm">城市绿化覆盖率超过45%</p>
+                        </div>
+
+                        <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6 text-center hover:shadow-md transition-shadow duration-300">
+                            <div class="bg-purple-100 w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4">
+                                <i class="fas fa-laptop-code text-purple-600 text-2xl"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-gray-800 mb-2">国家数字经济示范区</h3>
+                            <p class="text-gray-600 text-sm">数字经济占GDP比重达35%</p>
+                        </div>
+
+                        <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6 text-center hover:shadow-md transition-shadow duration-300">
+                            <div class="bg-yellow-100 w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4">
+                                <i class="fas fa-umbrella-beach text-yellow-600 text-2xl"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-gray-800 mb-2">中国最佳旅游城市</h3>
+                            <p class="text-gray-600 text-sm">年接待游客超过1亿人次</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 城市风光 -->
+        <section class="mb-4">
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <div class="bg-blue-800 text-white px-6 py-4">
+                    <h2 class="text-2xl font-bold">城市风光</h2>
+                </div>
+                <div class="p-6">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div class="gallery-item relative rounded-lg overflow-hidden shadow-md">
+                            <img src="https://via.placeholder.com/500x300" alt="城市风光" class="w-full h-64 object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent flex items-end p-4">
+                                <h3 class="text-white font-medium">新星市天际线</h3>
+                            </div>
+                        </div>
+
+                        <div class="gallery-item relative rounded-lg overflow-hidden shadow-md">
+                            <img src="https://via.placeholder.com/500x300" alt="城市风光" class="w-full h-64 object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent flex items-end p-4">
+                                <h3 class="text-white font-medium">中央公园</h3>
+                            </div>
+                        </div>
+
+                        <div class="gallery-item relative rounded-lg overflow-hidden shadow-md">
+                            <img src="https://via.placeholder.com/500x300" alt="城市风光" class="w-full h-64 object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent flex items-end p-4">
+                                <h3 class="text-white font-medium">滨江夜景</h3>
+                            </div>
+                        </div>
+
+                        <div class="gallery-item relative rounded-lg overflow-hidden shadow-md">
+                            <img src="https://via.placeholder.com/500x300" alt="城市风光" class="w-full h-64 object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent flex items-end p-4">
+                                <h3 class="text-white font-medium">文化广场</h3>
+                            </div>
+                        </div>
+
+                        <div class="gallery-item relative rounded-lg overflow-hidden shadow-md">
+                            <img src="https://via.placeholder.com/500x300" alt="城市风光" class="w-full h-64 object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent flex items-end p-4">
+                                <h3 class="text-white font-medium">新星博物馆</h3>
+                            </div>
+                        </div>
+
+                        <div class="gallery-item relative rounded-lg overflow-hidden shadow-md">
+                            <img src="https://via.placeholder.com/500x300" alt="城市风光" class="w-full h-64 object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent flex items-end p-4">
+                                <h3 class="text-white font-medium">滨海步道</h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 text-center">
+                        <button class="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition-colors duration-300">
+                            <i class="fas fa-images mr-2"></i> 查看更多城市风光
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 历史沿革 -->
+        <section class="mb-4">
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <div class="bg-blue-800 text-white px-6 py-4">
+                    <h2 class="text-2xl font-bold">历史沿革</h2>
+                </div>
+                <div class="p-6">
+                    <div class="relative">
+                        <!-- 时间轴 -->
+                        <div class="timeline">
+                            <!-- 时间轴项目 -->
+                            <div class="timeline-item mb-8 pl-8 relative before:absolute before:left-0 before:top-2 before:w-4 before:h-4 before:bg-blue-600 before:rounded-full before:z-10 after:absolute after:left-2 after:top-6 after:bottom-0 after:w-px after:bg-gray-300">
+                                <div class="bg-gray-50 p-4 rounded-lg shadow-sm">
+                                    <div class="text-blue-600 font-bold mb-1">公元前214年</div>
+                                    <h3 class="text-lg font-bold text-gray-800 mb-2">建城</h3>
+                                    <p class="text-gray-600">秦朝时期设立新星县，为军事要塞和商贸重镇。</p>
+                                </div>
+                            </div>
+
+                            <div class="timeline-item mb-8 pl-8 relative before:absolute before:left-0 before:top-2 before:w-4 before:h-4 before:bg-blue-600 before:rounded-full before:z-10 after:absolute after:left-2 after:top-6 after:bottom-0 after:w-px after:bg-gray-300">
+                                <div class="bg-gray-50 p-4 rounded-lg shadow-sm">
+                                    <div class="text-blue-600 font-bold mb-1">1368年</div>
+                                    <h3 class="text-lg font-bold text-gray-800 mb-2">明代扩建</h3>
+                                    <p class="text-gray-600">明朝时期扩建城墙，成为区域政治经济中心。</p>
+                                </div>
+                            </div>
+
+                            <div class="timeline-item mb-8 pl-8 relative before:absolute before:left-0 before:top-2 before:w-4 before:h-4 before:bg-blue-600 before:rounded-full before:z-10 after:absolute after:left-2 after:top-6 after:bottom-0 after:w-px after:bg-gray-300">
+                                <div class="bg-gray-50 p-4 rounded-lg shadow-sm">
+                                    <div class="text-blue-600 font-bold mb-1">1927年</div>
+                                    <h3 class="text-lg font-bold text-gray-800 mb-2">设市</h3>
+                                    <p class="text-gray-600">民国时期设立新星市，成为重要通商口岸。</p>
+                                </div>
+                            </div>
+
+                            <div class="timeline-item mb-8 pl-8 relative before:absolute before:left-0 before:top-2 before:w-4 before:h-4 before:bg-blue-600 before:rounded-full before:z-10">
+                                <div class="bg-gray-50 p-4 rounded-lg shadow-sm">
+                                    <div class="text-blue-600 font-bold mb-1">1984年</div>
+                                    <h3 class="text-lg font-bold text-gray-800 mb-2">改革开放</h3>
+                                    <p class="text-gray-600">成为首批沿海开放城市，经济快速发展。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+	<script>
+		var templatePath='${.current_template_name?keep_after('/')}';
+		var itemString="itemType=category&itemId=${category.id}";
+	</script>
+    <@tools.includePlace path="/common/e193da98-10e6-4bf5-8294-e3f009a5c9bd.html"/> <#-- footer -->
+
+    <script>
+
+        // 行政区划标签切换
+        const cityTabs = document.querySelectorAll('.city-tab');
+        cityTabs.forEach(tab => {
+            tab.addEventListener('click', function() {
+                // 移除所有标签的active类
+                cityTabs.forEach(t => t.classList.remove('active'));
+                // 给当前点击的标签添加active类
+                this.classList.add('active');
+
+                const region = this.dataset.tab;
+                const districtCards = document.querySelectorAll('.district-card');
+
+                if (region === 'all') {
+                    districtCards.forEach(card => card.style.display = 'block');
+                } else {
+                    districtCards.forEach(card => {
+                        if (card.dataset.region === region) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

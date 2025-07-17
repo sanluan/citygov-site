@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新星市政府 - 为人民服务</title>
+    <@tools.includePlace path="/common/5263183d-e47a-43e8-b159-bde076425459.html"/> <#-- head -->
+</head>
+<body class="font-sans bg-gray-50">
+    <@tools.includePlace path="/common/e01f6695-8132-4bef-97b6-d6505e6f8785.html"/> <#-- nav -->
+
+    <main class="container mx-auto px-4 py-8">
+        <#-- 面包屑导航 -->
+        <nav class="breadcrumb">
+            <ol class="flex">
+                <li class="breadcrumb-item"><a href="${site.sitePath}">首页</a></li>
+                <li class="breadcrumb-item active">网站地图</li>
+            </ol>
+        </nav>
+
+        <#-- 主标题 -->
+        <h1 class="text-3xl font-bold text-gray-800 mb-8 border-b pb-4">网站地图</h1>
+
+        <#-- 网站结构 -->
+		<@cms.categoryList>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+			<#list page.list as category>
+            <div class="bg-white rounded-lg shadow-md p-6" data-diy="category">
+                <h2 class="text-xl font-bold text-blue-800 mb-4 border-b pb-2"><a href="${category.url}">${category.name}</a></h2>
+				<@cms.categoryList parentId=category.id>
+                <ul class="space-y-2">
+					<#list page.list as category>
+                    <li><a href="${category.url}" class="text-gray-700 hover:text-blue-600">${category.name}</a></li>
+					</#list>
+                </ul>
+				</@cms.categoryList>
+            </div>
+			</#list>
+        </div>
+		</@cms.categoryList>
+    </main>
+	
+	<script>
+		var templatePath='${.current_template_name?keep_after('/')}';
+		var itemString="itemType=category&itemId=${category.id}";
+	</script>
+    <@tools.includePlace path="/common/e193da98-10e6-4bf5-8294-e3f009a5c9bd.html"/> <#-- footer -->
+</body>
+</html>

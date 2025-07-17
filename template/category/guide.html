@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="UTF-8">
+    <title>${(attribute.title)?has_content?then(attribute.title,category.name)} - ${site.name}</title>
+	<meta name="keywords" content="${(attribute.keywords)!}"/>
+	<meta name="description" content="${(attribute.description)!}"/>
+	<@tools.includePlace path="/common/5263183d-e47a-43e8-b159-bde076425459.html"/> <#-- head -->
+</head>
+<body class="font-sans bg-gray-50">
+    <@tools.includePlace path="/common/e01f6695-8132-4bef-97b6-d6505e6f8785.html"/> <#-- nav -->
+
+    <!-- 办事指南页面 -->
+    <main class="container mx-auto px-4 py-4">
+		<@include path="/fragment/bread.html"/><#-- 面包屑导航 -->
+        <!-- 选项卡导航 -->
+        <div class="flex border-b border-gray-200 mb-8">
+            <a class="tab-button px-6 py-3 text-gray-600 hover:text-blue-600 active" href="guide.html">
+                <i class="fas fa-list-alt mr-2"></i>办事指南
+            </a>
+            <a class="tab-button px-6 py-3 text-gray-600 hover:text-blue-600"  href="form-download.html">
+                <i class="fas fa-file-download mr-2"></i>表格下载
+            </a>
+            <a class="tab-button px-6 py-3 text-gray-600 hover:text-blue-600" href="application.html">
+                <i class="fas fa-file-upload mr-2"></i>在线申报
+            </a>
+            <a class="tab-button px-6 py-3 text-gray-600 hover:text-blue-600" href="query-center.html">
+                <i class="fas fa-search mr-2"></i>查询中心
+            </a>
+        </div>
+
+        <!-- 办事指南页面 -->
+        <div class="bg-white rounded-lg shadow-sm p-6 mb-8">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">办事服务分类</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- 个人办事 -->
+                <a href="#personal" class="service-category bg-white rounded-lg shadow-sm p-6 text-center hover:shadow-md transition-all duration-200">
+                    <div class="service-icon bg-blue-100 text-blue-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-user text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-800 mb-2">个人办事</h3>
+                    <p class="text-gray-600 text-sm">户籍、证件、社保、医疗等个人事务办理</p>
+                </a>
+
+                <!-- 企业办事 -->
+                <a href="#business" class="service-category bg-white rounded-lg shadow-sm p-6 text-center hover:shadow-md transition-all duration-200">
+                    <div class="service-icon bg-green-100 text-green-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-building text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-800 mb-2">企业办事</h3>
+                    <p class="text-gray-600 text-sm">工商注册、税务登记、资质认证等企业服务</p>
+                </a>
+
+                <!-- 部门服务 -->
+                <a href="#department" class="service-category bg-white rounded-lg shadow-sm p-6 text-center hover:shadow-md transition-all duration-200">
+                    <div class="service-icon bg-purple-100 text-purple-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-landmark text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-800 mb-2">部门服务</h3>
+                    <p class="text-gray-600 text-sm">各政府部门专项业务办理指南</p>
+                </a>
+
+                <!-- 便民服务 -->
+                <a href="#convenience" class="service-category bg-white rounded-lg shadow-sm p-6 text-center hover:shadow-md transition-all duration-200">
+                    <div class="service-icon bg-yellow-100 text-yellow-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-hands-helping text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-800 mb-2">便民服务</h3>
+                    <p class="text-gray-600 text-sm">生活缴费、交通出行、公共设施等便民服务</p>
+                </a>
+            </div>
+        </div>
+
+        <!-- 个人办事指南 -->
+        <div id="personal" class="mb-12">
+            <h2 class="text-xl font-bold text-gray-800 mb-6 border-l-4 border-blue-600 pl-3">个人办事指南</h2>
+
+            <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+                <div class="border-b border-gray-200">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between p-4 bg-gray-50">
+                        <div>
+                            <h3 class="font-bold text-gray-800">户籍业务</h3>
+                            <p class="text-sm text-gray-600">户口迁移、新生儿落户、户口注销等业务</p>
+                        </div>
+                        <button class="mt-2 md:mt-0 px-4 py-2 bg-blue-600 text-white rounded-md text-sm hover:bg-blue-700 transition-colors">
+                            查看详情 <i class="fas fa-chevron-right ml-1"></i>
+                        </button>
+                    </div>
+
+                    <div class="p-4">
+                        <h4 class="font-bold text-gray-700 mb-3">办理流程</h4>
+                        <div class="space-y-4 pl-8 relative">
+                            <div class="process-step relative pl-10">
+                                <h5 class="font-medium text-gray-800">准备材料</h5>
+                                <p class="text-sm text-gray-600 mt-1">身份证原件及复印件、户口本、相关证明文件</p>
+                            </div>
+                            <div class="process-step relative pl-10">
+                                <h5 class="font-medium text-gray-800">网上预约</h5>
+                                <p class="text-sm text-gray-600 mt-1">登录"新星市政务服务网"或"新星政务"APP预约办理时间</p>
+                            </div>
+                            <div class="process-step relative pl-10">
+                                <h5 class="font-medium text-gray-800">现场办理</h5>
+                                <p class="text-sm text-gray-600 mt-1">按预约时间到户籍所在地派出所办理</p>
+                            </div>
+                            <div class="process-step relative pl-10">
+                                <h5 class="font-medium text-gray-800">领取结果</h5>
+                                <p class="text-sm text-gray-600 mt-1">当场办理或按通知时间领取办理结果</p>
+                            </div>
+                        </div>
+
+                        <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <h4 class="font-bold text-gray-700 mb-3">办理地点</h4>
+                                <p class="text-sm text-gray-600">户籍所在地派出所户籍窗口</p>
+                                <p class="text-sm text-gray-600 mt-2"><i class="fas fa-clock mr-2"></i>工作日 9:00-17:00</p>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-700 mb-3">咨询电话</h4>
+                                <p class="text-sm text-gray-600">12345政务服务热线</p>
+                                <p class="text-sm text-gray-600 mt-2"><i class="fas fa-globe mr-2"></i>www.xinxing.gov.cn</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="border-b border-gray-200">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between p-4">
+                        <div>
+                            <h3 class="font-bold text-gray-800">身份证办理</h3>
+                            <p class="text-sm text-gray-600">首次申领、换领、补领居民身份证</p>
+                        </div>
+                        <button class="mt-2 md:mt-0 px-4 py-2 bg-blue-600 text-white rounded-md text-sm hover:bg-blue-700 transition-colors">
+                            查看详情 <i class="fas fa-chevron-right ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="border-b border-gray-200">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between p-4 bg-gray-50">
+                        <div>
+                            <h3 class="font-bold text-gray-800">社保卡申领</h3>
+                            <p class="text-sm text-gray-600">社会保障卡首次申领、补换卡</p>
+                        </div>
+                        <button class="mt-2 md:mt-0 px-4 py-2 bg-blue-600 text-white rounded-md text-sm hover:bg-blue-700 transition-colors">
+                            查看详情 <i class="fas fa-chevron-right ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between p-4">
+                        <div>
+                            <h3 class="font-bold text-gray-800">出入境证件</h3>
+                            <p class="text-sm text-gray-600">护照、港澳通行证、台湾通行证办理</p>
+                        </div>
+                        <button class="mt-2 md:mt-0 px-4 py-2 bg-blue-600 text-white rounded-md text-sm hover:bg-blue-700 transition-colors">
+                            查看详情 <i class="fas fa-chevron-right ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 企业办事指南 -->
+        <div id="business" class="mb-12">
+            <h2 class="text-xl font-bold text-gray-800 mb-6 border-l-4 border-blue-600 pl-3">企业办事指南</h2>
+
+            <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+                <div class="border-b border-gray-200">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between p-4 bg-gray-50">
+                        <div>
+                            <h3 class="font-bold text-gray-800">企业注册登记</h3>
+                            <p class="text-sm text-gray-600">有限责任公司、股份有限公司等企业设立登记</p>
+                        </div>
+                        <button class="mt-2 md:mt-0 px-4 py-2 bg-blue-600 text-white rounded-md text-sm hover:bg-blue-700 transition-colors">
+                            查看详情 <i class="fas fa-chevron-right ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="border-b border-gray-200">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between p-4">
+                        <div>
+                            <h3 class="font-bold text-gray-800">税务登记</h3>
+                            <p class="text-sm text-gray-600">新办企业税务登记、税种核定</p>
+                        </div>
+                        <button class="mt-2 md:mt-0 px-4 py-2 bg-blue-600 text-white rounded-md text-sm hover:bg-blue-700 transition-colors">
+                            查看详情 <i class="fas fa-chevron-right ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="border-b border-gray-200">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between p-4 bg-gray-50">
+                        <div>
+                            <h3 class="font-bold text-gray-800">社保开户</h3>
+                            <p class="text-sm text-gray-600">企业社会保险登记及员工参保</p>
+                        </div>
+                        <button class="mt-2 md:mt-0 px-4 py-2 bg-blue-600 text-white rounded-md text-sm hover:bg-blue-700 transition-colors">
+                            查看详情 <i class="fas fa-chevron-right ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between p-4">
+                        <div>
+                            <h3 class="font-bold text-gray-800">经营许可证</h3>
+                            <p class="text-sm text-gray-600">各类行业经营许可证办理</p>
+                        </div>
+                        <button class="mt-2 md:mt-0 px-4 py-2 bg-blue-600 text-white rounded-md text-sm hover:bg-blue-700 transition-colors">
+                            查看详情 <i class="fas fa-chevron-right ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+	<script>
+		var templatePath='${.current_template_name?keep_after('/')}';
+		var itemString="itemType=category&itemId=${category.id}";
+	</script>
+    <@tools.includePlace path="/common/e193da98-10e6-4bf5-8294-e3f009a5c9bd.html"/> <#-- footer -->
+
+    <script>
+		// 模拟表格下载功能
+        document.querySelectorAll('.form-card a[href="#"]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const formName = this.closest('.form-card').querySelector('h4').textContent;
+                alert(`即将下载: ${formName}\n在实际应用中，这里会触发文件下载`);
+            });
+        });
+    </script>
+</body>
+</html>
